@@ -1,27 +1,30 @@
-import {
-  IsNotEmpty,
-  IsEmail,
-  IsMobilePhone,
-  ValidationOptions
-} from "class-validator";
-import { plainToClassFromExist } from "class-transformer";
+import { IsNotEmpty, IsEmail, IsMobilePhone, ValidationOptions, Matches } from 'class-validator';
+import { plainToClassFromExist } from 'class-transformer';
 
-const options: ValidationOptions = { message: "填寫正式資料" };
+const options: ValidationOptions = { message: '填寫正式資料' };
 
 export class Member {
   @IsNotEmpty(options)
-  name = "";
+  name = '';
 
   @IsNotEmpty(options)
   @IsEmail()
-  email = "";
+  email = '';
 
   @IsNotEmpty(options)
-  @IsMobilePhone("zh-TW", options)
-  mobile = "";
+  @IsMobilePhone('zh-TW', options)
+  mobile = '';
 
   @IsNotEmpty(options)
   birthday: Date;
+
+  @IsNotEmpty(options)
+  @Matches(/[a-zA-Z\d]{6,12}/g, options)
+  account = '';
+
+  @IsNotEmpty(options)
+  @Matches(/[a-zA-Z\d]{6,12}/g, options)
+  password = '';
 
   constructor(data?: any) {
     plainToClassFromExist(this, data);
