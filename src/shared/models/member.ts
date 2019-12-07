@@ -16,7 +16,7 @@ export class Member {
   mobile = '';
 
   @IsNotEmpty(options)
-  birthday: Date;
+  birthday = '';
 
   @IsNotEmpty(options)
   @Matches(/[a-zA-Z\d]{6,12}/g, options)

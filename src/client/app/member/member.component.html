@@ -7,8 +7,11 @@
         class="form-control"
         id="memberName"
         placeholder="name"
-        formControlName="Name"
+        formControlName="name"
       />
+      <div>
+        {{ group?.formErrors | json }}
+      </div>
     </div>
     <div class="form-group">
       <label for="mobile">Mobile</label>
@@ -53,6 +56,6 @@
         formControlName="password"
       />
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary">Save</button>
   </form>
 </div>

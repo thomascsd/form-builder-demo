@@ -9,8 +9,8 @@ import { Member } from '../../../shared/models/member';
 })
 export class MemberComponent implements OnInit {
   group: DynamicFormGroup<Member>;
-
-  constructor(private fb: DynamicFormBuilder) {
+  fb = new DynamicFormBuilder();
+  constructor() {
     this.group = this.fb.group(Member);
   }
 
