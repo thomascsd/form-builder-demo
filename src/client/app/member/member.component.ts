@@ -11,12 +11,19 @@ export class MemberComponent implements OnInit {
   group: DynamicFormGroup<Member>;
   fb = new DynamicFormBuilder();
   constructor() {
-    this.group = this.fb.group(Member);
+    this.group = this.fb.group(Member, {
+      name: '',
+      email: '',
+      mobile: '',
+      birthday: '',
+      account: '',
+      password: ''
+    });
   }
 
   ngOnInit() {}
 
-  onSubmit() {
+  onSaveClick() {
     this.group.validateAllFormFields();
     if (this.group.valid) {
     }
