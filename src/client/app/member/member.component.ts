@@ -9,21 +9,16 @@ import { Member } from '../../../shared/models/member';
 })
 export class MemberComponent implements OnInit {
   group: DynamicFormGroup<Member>;
-  fb = new DynamicFormBuilder();
-  constructor() {
-    this.group = this.fb.group(Member, {
-      name: '',
-      email: '',
-      mobile: '',
-      birthday: '',
-      account: '',
-      password: ''
-    });
+  btnClassName = 'btn-default';
+  // fb = new DynamicFormBuilder();
+  constructor(private fb: DynamicFormBuilder) {
+    this.group = this.fb.group(Member);
+    this.btnClassName = this.group.valid ? 'btn-primary' : 'btn-default';
   }
 
   ngOnInit() {}
 
-  onSaveClick() {
+  onSubmit() {
     this.group.validateAllFormFields();
     if (this.group.valid) {
     }

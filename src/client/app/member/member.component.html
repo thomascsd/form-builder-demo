@@ -1,7 +1,10 @@
 <div class="container">
-  <form [formGroup]="group" *ngIf="group?.customValidateErrors | async as errors">
-    <!-- (ngSubmit)="onSubmit()"
-  #form="ngForm" -->
+  <form
+    [formGroup]="group"
+    *ngIf="group?.customValidateErrors | async as errors"
+    (ngSubmit)="onSubmit()"
+    #form="ngForm"
+  >
     <div>
       {{ errors | json }}
     </div>
@@ -14,10 +17,22 @@
         placeholder="name"
         formControlName="name"
       />
-
-      <p *ngIf="errors.name?.length > 0">
+      <small class="text-danger" *ngIf="errors.name?.length > 0">
         {{ errors.name[0] }}
-      </p>
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="memberEmail">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="memberEmail"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <small class="text-danger" *ngIf="errors.email?.length > 0">
+        {{ errors.email[0] }}
+      </small>
     </div>
     <div class="form-group">
       <label for="mobile">Mobile</label>
@@ -28,6 +43,9 @@
         placeholder="Mobile"
         formControlName="mobile"
       />
+      <small class="text-danger" *ngIf="errors.mobile?.length > 0">
+        {{ errors.mobile[0] }}
+      </small>
     </div>
     <div class="form-group">
       <label for="birthday">Birthday</label>
@@ -39,6 +57,9 @@
         placeholder="Birthday"
         formControlName="birthday"
       />
+      <small class="text-danger" *ngIf="errors.birthday?.length > 0">
+        {{ errors.birthday[0] }}
+      </small>
     </div>
     <div class="form-group">
       <label for="account">Account</label>
@@ -50,6 +71,9 @@
         placeholder="Account"
         formControlName="account"
       />
+      <small class="text-danger" *ngIf="errors.account?.length > 0">
+        {{ errors.account[0] }}
+      </small>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -61,7 +85,10 @@
         placeholder="Password"
         formControlName="password"
       />
+      <small class="text-danger" *ngIf="errors.password?.length > 0">
+        {{ errors.password[0] }}
+      </small>
     </div>
-    <button (click)="onSaveClick()" class="btn btn-primary">Save</button>
+    <button class="btn" [ngClass]="btnClassName" [disabled]="!group.valid">Save</button>
   </form>
 </div>
