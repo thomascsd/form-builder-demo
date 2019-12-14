@@ -15,8 +15,25 @@ export class Member {
   @IsMobilePhone('zh-TW', options)
   mobile = '';
 
-  @IsNotEmpty(options)
-  birthday = '';
+  // @IsNotEmpty(options)
+  // birthday = '';
+  @IsNotEmpty({
+    message: '填寫正式資料',
+    groups: ['birthday']
+  })
+  birthdayYear: number;
+
+  @IsNotEmpty({
+    message: '填寫正式資料',
+    groups: ['birthday']
+  })
+  birthdayMonth: number;
+
+  @IsNotEmpty({
+    message: '填寫正式資料',
+    groups: ['birthday']
+  })
+  birthdayDate: number;
 
   @IsNotEmpty(options)
   @Matches(/[a-zA-Z\d]{6,12}/g, options)

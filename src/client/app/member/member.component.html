@@ -42,6 +42,7 @@
         id="mobile"
         placeholder="Mobile"
         formControlName="mobile"
+        maxlength="10"
       />
       <small class="text-danger" *ngIf="errors.mobile?.length > 0">
         {{ errors.mobile[0] }}
@@ -89,6 +90,8 @@
         {{ errors.password[0] }}
       </small>
     </div>
-    <button class="btn" [ngClass]="btnClassName" [disabled]="!group.valid">Save</button>
+    <button class="btn" [ngClass]="getBtnCssClass(form)" [disabled]="!form.valid">
+      Save
+    </button>
   </form>
 </div>
