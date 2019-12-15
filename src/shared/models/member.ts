@@ -33,7 +33,7 @@ export class Member {
     message: '填寫正式資料',
     groups: ['birthday']
   })
-  birthdayDate: number;
+  birthdayDay: number;
 
   @IsNotEmpty(options)
   @Matches(/[a-zA-Z\d]{6,12}/g, options)
