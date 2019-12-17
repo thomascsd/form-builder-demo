@@ -51,7 +51,7 @@
     <div class="form-group">
       <label for="birthday">Birthday</label>
       <select
-        class="form-control"
+        class="form-control col-md-4"
         id="birthdayYear"
         name="birthdayYear"
         formControlName="birthdayYear"
@@ -60,7 +60,7 @@
         <option *ngFor="let year of years" [value]="year">{{ year }}</option>
       </select>
       <select
-        class="form-control"
+        class="form-control col-md-4"
         id="birthdayMonth"
         name="birthdayMonth"
         formControlName="birthdayMonth"
@@ -70,7 +70,7 @@
         <option *ngFor="let month of months" [value]="month">{{ month }}</option>
       </select>
       <select
-        class="form-control"
+        class="form-control col-md-4"
         id="birthdayDay"
         name="birthdayDay"
         formControlName="birthdayDay"

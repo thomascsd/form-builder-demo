@@ -13,7 +13,7 @@ export class MemberComponent implements OnInit {
   group: DynamicFormGroup<Member>;
   years: number[];
   months: number[];
-  days: number[];
+  days: number[] = [];
   // fb = new DynamicFormBuilder();
   constructor(private fb: DynamicFormBuilder, private birthdayService: BithdayService) {
     this.group = this.fb.group(Member);
