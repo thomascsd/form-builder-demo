@@ -52,7 +52,7 @@
       <label for="birthday">Birthday</label>
       <div class="row">
         <ng-select
-          class="col-md-3"
+          class="col-md-4"
           [items]="years"
           placeholder="Year"
           labelForId="birthdayYear"
@@ -61,7 +61,7 @@
           #ctlYear
         ></ng-select>
         <ng-select
-          class="col-md-3"
+          class="col-md-4"
           [items]="months"
           [searchable]="false"
           placeholder="Month"
@@ -71,7 +71,7 @@
           (change)="onMonthChange($event)"
         ></ng-select>
         <ng-select
-          class="col-md-3"
+          class="col-md-4"
           [items]="days"
           [searchable]="false"
           placeholder="Day"
