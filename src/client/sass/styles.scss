@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~@ng-select/ng-select/scss/default.theme.scss';
 body {
   overflow-x: hidden;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
