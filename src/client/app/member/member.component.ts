@@ -11,9 +11,9 @@ import { BithdayService } from '../core/services/bithday.service';
 })
 export class MemberComponent implements OnInit {
   group: DynamicFormGroup<Member>;
-  years: number[];
-  months: number[];
-  days: number[] = [];
+  years: string[];
+  months: string[];
+  days: string[] = [];
   // fb = new DynamicFormBuilder();
   constructor(private fb: DynamicFormBuilder, private birthdayService: BithdayService) {
     this.group = this.fb.group(Member);
@@ -44,7 +44,7 @@ export class MemberComponent implements OnInit {
     const d = new Date(parseInt(year, 10), parseInt(month, 10) - 1, 0);
 
     for (let day = 1; day <= d.getDate(); day++) {
-      this.days.push(day);
+      this.days.push(day.toString());
     }
   }
 }

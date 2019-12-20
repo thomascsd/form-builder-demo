@@ -6,22 +6,22 @@ import { Injectable } from '@angular/core';
 export class BithdayService {
   constructor() {}
 
-  getYears(): number[] {
-    const years = [];
+  getYears(): string[] {
+    const years: string[] = [];
     const now = new Date();
 
     for (let year = now.getFullYear() - 20; year > 1900; year--) {
-      years.push(year);
+      years.push(year.toString());
     }
 
     return years;
   }
 
-  getMonth(): number[] {
-    const months = [];
+  getMonth(): string[] {
+    const months: string[] = [];
 
     for (let month = 1; month <= 12; month++) {
-      months.push(month);
+      months.push(month.toString());
     }
 
     return months;

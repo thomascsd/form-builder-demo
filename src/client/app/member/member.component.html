@@ -50,36 +50,39 @@
     </div>
     <div class="form-group">
       <label for="birthday">Birthday</label>
-      <select
-        class="form-control col-md-4"
-        id="birthdayYear"
-        name="birthdayYear"
-        formControlName="birthdayYear"
-        #ctlYear
-      >
-        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-      </select>
-      <select
-        class="form-control col-md-4"
-        id="birthdayMonth"
-        name="birthdayMonth"
-        formControlName="birthdayMonth"
-        #ctlMonth
-        (change)="onMonthChange(ctlYear.value, ctlMonth.value)"
-      >
-        <option *ngFor="let month of months" [value]="month">{{ month }}</option>
-      </select>
-      <select
-        class="form-control col-md-4"
-        id="birthdayDay"
-        name="birthdayDay"
-        formControlName="birthdayDay"
-      >
-        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
-      </select>
-      <!-- <small class="text-danger" *ngIf="errors.birthday?.length > 0">
+      <div class="row">
+        <ng-select
+          class="col-md-3"
+          [items]="years"
+          placeholder="Year"
+          labelForId="birthdayYear"
+          formControlName="birthdayYear"
+          [searchable]="false"
+          #ctlYear
+        ></ng-select>
+        <ng-select
+          class="col-md-3"
+          [items]="months"
+          [searchable]="false"
+          placeholder="Month"
+          labelForId="birthdayMonth"
+          formControlName="birthdayMonth"
+          #ctlMonth
+          (change)="onMonthChange($event)"
+        ></ng-select>
+        <ng-select
+          class="col-md-3"
+          [items]="days"
+          [searchable]="false"
+          placeholder="Day"
+          labelForId="birthdayDay"
+          formControlName="birthdayDay"
+        ></ng-select>
+
+        <!-- <small class="text-danger" *ngIf="errors.birthday?.length > 0">
         {{ errors.birthday[0] }}
       </small> -->
+      </div>
     </div>
     <div class="form-group">
       <label for="account">Account</label>

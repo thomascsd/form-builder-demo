@@ -21,19 +21,19 @@ export class Member {
     message: '填寫正式資料',
     groups: ['birthday']
   })
-  birthdayYear = 0;
+  birthdayYear = '';
 
   @IsNotEmpty({
     message: '填寫正式資料',
     groups: ['birthday']
   })
-  birthdayMonth = 0;
+  birthdayMonth = '';
 
   @IsNotEmpty({
     message: '填寫正式資料',
     groups: ['birthday']
   })
-  birthdayDay = 0;
+  birthdayDay = '';
 
   @IsNotEmpty(options)
   @Matches(/[a-zA-Z\d]{6,12}/g, options)

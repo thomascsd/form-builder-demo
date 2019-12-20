@@ -79,6 +79,7 @@
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
               "src/client/sass/styles.scss"
             ],
             "assets": ["src/client/assets", "src/client/favicon.ico"]
