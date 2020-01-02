@@ -47,3 +47,12 @@ export class Member {
     plainToClassFromExist(this, data);
   }
 }
+
+export interface MemberObject {
+  name: string;
+  email: string;
+  mobile: string;
+  birthday: string;
+  account: string;
+  password: string;
+}

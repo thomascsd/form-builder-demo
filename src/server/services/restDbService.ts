@@ -10,11 +10,17 @@ export class RestDbService {
     return body;
   }
 
-  async saveData(tableName: string) {
+  async saveData<T>(tableName: string, data: T) {
     const url = `${process.env.RESTDB_URL}${tableName}`;
     const client = this.getGot();
 
-    await client.post(url);
+    const body = await client
+      .post(url, {
+        json: data
+      })
+      .json();
+
+    console.log(body);
   }
 
   getGot() {
