@@ -1,9 +1,20 @@
 # form-builder-demo
 
-## License
+## Table of Contents
 
-- License: MIT
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Usage](#usage)
+- [Contributing](../CONTRIBUTING.md)
 
-## Author
+## About <a name = "about"></a>
 
-- Author: thomascsd
+Form builder demongx-dynamic-form-builder 's demo
+
+## Getting Started <a name = "getting_started"></a>
+
+```
+git clone https://github.com/thomascsd/form-builder-demo.git
+cd form-builder-demo.git
+npm install
+```
