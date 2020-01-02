@@ -9,6 +9,6 @@ export class MemberService {
 
     data['birthday'] = `${member.birthdayYear}-${member.birthdayMonth}-${member.birthdayDay}`;
 
-    this.dbService.saveData('member', data);
+    return this.dbService.saveData('member', data);
   }
 }

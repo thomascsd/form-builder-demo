@@ -18,9 +18,11 @@ export class RestDbService {
       .post(url, {
         json: data
       })
-      .json();
+      .json<T>();
 
     console.log(body);
+
+    return body;
   }
 
   getGot() {
