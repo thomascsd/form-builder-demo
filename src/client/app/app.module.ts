@@ -11,9 +11,10 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MemberComponent } from './member/member.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, MemberComponent],
+  declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
