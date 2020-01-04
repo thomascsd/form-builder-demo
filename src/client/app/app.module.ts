@@ -1,7 +1,8 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { NgSelectModule } from '@ng-select/ng-select';
 
@@ -20,7 +21,8 @@ import { MemberComponent } from './member/member.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
   ],
   providers: [DynamicFormBuilder],
   bootstrap: [AppComponent]

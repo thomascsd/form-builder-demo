@@ -3,6 +3,7 @@ import { DynamicFormGroup, DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { Member } from '../../../shared/models/member';
 import { NgForm } from '@angular/forms';
 import { BithdayService } from '../core/services/bithday.service';
+import { MemberService } from './member.service';
 
 @Component({
   selector: 'app-member',
@@ -15,7 +16,11 @@ export class MemberComponent implements OnInit {
   months: string[];
   days: string[];
   // fb = new DynamicFormBuilder();
-  constructor(private fb: DynamicFormBuilder, private birthdayService: BithdayService) {
+  constructor(
+    private fb: DynamicFormBuilder,
+    private birthdayService: BithdayService,
+    private memberService: MemberService
+  ) {
     this.group = this.fb.group(Member);
   }
 
@@ -27,6 +32,7 @@ export class MemberComponent implements OnInit {
   onSubmit() {
     this.group.validateAllFormFields();
     if (this.group.valid) {
+      this.memberService.saveMember(this.group.object);
     }
   }
 
@@ -38,6 +44,8 @@ export class MemberComponent implements OnInit {
     } else {
       cssClass = 'btn-primary';
     }
+
+    return cssClass;
   }
 
   onMonthChange(month: string) {

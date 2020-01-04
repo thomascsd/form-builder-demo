@@ -1,5 +1,5 @@
 import { RestDbService } from './restDbService';
-import { Member, MemberObject } from '../../shared/models/member';
+import { Member } from '../../shared/models/member';
 import { classToPlain } from 'class-transformer';
 
 export class MemberService {

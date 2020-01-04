@@ -1,4 +1,12 @@
-import { IsNotEmpty, IsEmail, IsMobilePhone, ValidationOptions, Matches } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsEmail,
+  IsMobilePhone,
+  ValidationOptions,
+  Matches,
+  MinLength,
+  MaxLength
+} from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
@@ -36,11 +44,15 @@ export class Member {
   birthdayDay = '';
 
   @IsNotEmpty(options)
-  @Matches(/[a-zA-Z\d]{6,12}/g, options)
+  @MinLength(6, options)
+  @MaxLength(12, options)
+  @Matches(/[a-zA-Z\d]/g, options)
   account = '';
 
   @IsNotEmpty(options)
-  @Matches(/[a-zA-Z\d]{6,12}/g, options)
+  @MinLength(6, options)
+  @MaxLength(12, options)
+  @Matches(/[a-zA-Z\d]/g, options)
   password = '';
 
   constructor(data?: any) {

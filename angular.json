@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-express-starter": {
+    "form-builder-demo": {
       "root": "",
       "sourceRoot": "src/client",
       "projectType": "application",
@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-express-starter:build"
+            "browserTarget": "form-builder-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-express-starter:build:production"
+              "browserTarget": "form-builder-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-express-starter:build"
+            "browserTarget": "form-builder-demo:build"
           }
         },
         "test": {
@@ -93,7 +93,7 @@
         }
       }
     },
-    "angular-express-starter-e2e": {
+    "form-builder-demo-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -102,7 +102,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-express-starter:serve"
+            "devServerTarget": "form-builder-demo:serve"
           }
         },
         "lint": {
@@ -115,7 +115,7 @@
       }
     }
   },
-  "defaultProject": "angular-express-starter",
+  "defaultProject": "form-builder-demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

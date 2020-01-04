@@ -2,11 +2,11 @@ import * as express from 'express';
 import { validateOrReject } from 'class-validator';
 import { Route } from '../interfaces/Route';
 import { Router } from '../interfaces/Router';
-import { MemberService } from 'services/memberService';
+import { MemberService } from '../services/memberService';
 import { Member } from '../../shared/models/member';
 
 const getMemberRoute: Route = {
-  path: '/member',
+  path: '/member/list',
   handler(req: express.Request, res: express.Response): any {
     return res.json({
       message: 'hello'
@@ -15,8 +15,8 @@ const getMemberRoute: Route = {
 };
 
 const saveMemberRoute: Route = {
-  path: '/member',
-  async handler(req: express.Request, res: express.Response): any {
+  path: '/member/save',
+  async handler(req: express.Request, res: express.Response) {
     const memberService = new MemberService();
     const member = req.body as Member;
 
@@ -37,6 +37,6 @@ const saveMemberRoute: Route = {
 export default class ApiRouter implements Router {
   setRouter(router: express.Router) {
     router.get(getMemberRoute.path, getMemberRoute.handler);
-    router.post(getMemberRoute.path, getMemberRoute.handler);
+    router.post(saveMemberRoute.path, saveMemberRoute.handler);
   }
 }
