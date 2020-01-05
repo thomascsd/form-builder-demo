@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicFormGroup, DynamicFormBuilder } from 'ngx-dynamic-form-builder';
-import { MemberDomain } from '../../../shared/models/member';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MemberDomain } from '../../../shared/models/member';
 import { BithdayService } from '../core/services/bithday.service';
-import { MemberService } from './member.service';
+import { MemberService } from '../core/state/member.service';
 
 @Component({
   selector: 'app-member',
@@ -19,7 +20,8 @@ export class MemberComponent implements OnInit {
   constructor(
     private fb: DynamicFormBuilder,
     private birthdayService: BithdayService,
-    private memberService: MemberService
+    private memberService: MemberService,
+    private snackBar: MatSnackBar
   ) {
     this.group = this.fb.group(MemberDomain);
   }
@@ -32,7 +34,9 @@ export class MemberComponent implements OnInit {
   onSubmit() {
     this.group.validateAllFormFields();
     if (this.group.valid) {
-      this.memberService.saveMember(this.group.object);
+      this.memberService.saveMember(this.group.object).subscribe(() => {
+        this.snackBar.open('儲存成功');
+      });
     }
   }
 

@@ -1,11 +1,9 @@
 export interface Member {
-  id: number | string;
+  _id: number | string;
   name: string;
   email: string;
   mobile: string;
-  birthdayYear: string;
-  birthdayMonth: string;
-  birthdayDay: string;
+  birthday: string;
   account: string;
   password: string;
 }
