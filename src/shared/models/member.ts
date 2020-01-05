@@ -11,7 +11,7 @@ import { plainToClassFromExist } from 'class-transformer';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
 
-export class Member {
+export class MemberDomain {
   @IsNotEmpty(options)
   name = '';
 
@@ -58,13 +58,4 @@ export class Member {
   constructor(data?: any) {
     plainToClassFromExist(this, data);
   }
-}
-
-export interface MemberObject {
-  name: string;
-  email: string;
-  mobile: string;
-  birthday: string;
-  account: string;
-  password: string;
 }

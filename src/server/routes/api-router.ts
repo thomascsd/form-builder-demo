@@ -3,7 +3,7 @@ import { validateOrReject } from 'class-validator';
 import { Route } from '../interfaces/Route';
 import { Router } from '../interfaces/Router';
 import { MemberService } from '../services/memberService';
-import { Member } from '../../shared/models/member';
+import { MemberDomain } from '../../shared/models/member';
 
 const getMemberRoute: Route = {
   path: '/member/list',
@@ -18,7 +18,7 @@ const saveMemberRoute: Route = {
   path: '/member/save',
   async handler(req: express.Request, res: express.Response) {
     const memberService = new MemberService();
-    const member = req.body as Member;
+    const member = req.body as MemberDomain;
 
     try {
       await validateOrReject(member);

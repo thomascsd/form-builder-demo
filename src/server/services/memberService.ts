@@ -1,11 +1,11 @@
 import { genSalt, hash } from 'bcrypt';
 import { RestDbService } from './restDbService';
-import { Member } from '../../shared/models/member';
+import { MemberDomain } from '../../shared/models/member';
 import { classToPlain } from 'class-transformer';
 
 export class MemberService {
   dbService: RestDbService = new RestDbService();
-  async saveMember(member: Member) {
+  async saveMember(member: MemberDomain) {
     const data = classToPlain(member);
     const salt = await genSalt();
     const bPwd = await hash(data['password'], salt);

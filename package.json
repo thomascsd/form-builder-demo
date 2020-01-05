@@ -31,6 +31,7 @@
     "@angular/platform-server": "8.0.2",
     "@angular/pwa": "^0.800.3",
     "@angular/router": "8.0.2",
+    "@datorama/akita": "^4.17.1",
     "@ng-select/ng-select": "^3.7.0",
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.17.0",
@@ -69,6 +70,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.21",
+    "@datorama/akita-ngdevtools": "^3.0.2",
     "@types/bcrypt": "^3.0.0",
     "nodemon": "^1.19.1"
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicFormGroup, DynamicFormBuilder } from 'ngx-dynamic-form-builder';
-import { Member } from '../../../shared/models/member';
+import { MemberDomain } from '../../../shared/models/member';
 import { NgForm } from '@angular/forms';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from './member.service';
@@ -11,7 +11,7 @@ import { MemberService } from './member.service';
   styleUrls: ['./member.component.scss']
 })
 export class MemberComponent implements OnInit {
-  group: DynamicFormGroup<Member>;
+  group: DynamicFormGroup<MemberDomain>;
   years: string[];
   months: string[];
   days: string[];
@@ -21,7 +21,7 @@ export class MemberComponent implements OnInit {
     private birthdayService: BithdayService,
     private memberService: MemberService
   ) {
-    this.group = this.fb.group(Member);
+    this.group = this.fb.group(MemberDomain);
   }
 
   ngOnInit() {

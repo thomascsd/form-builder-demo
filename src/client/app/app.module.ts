@@ -12,6 +12,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MemberComponent } from './member/member.component';
 import { ListComponent } from './list/list.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent],
@@ -23,7 +25,8 @@ import { ListComponent } from './list/list.component';
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   providers: [DynamicFormBuilder],
   bootstrap: [AppComponent]
