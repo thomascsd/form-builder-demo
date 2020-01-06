@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MemberQuery } from '../core/state/member.query';
+import { Member } from '../core/state/member.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  members$: Observable<Member[]>;
 
-  constructor() { }
+  constructor(private memberQuery: MemberQuery) {}
 
   ngOnInit() {
+    this.members$ = this.memberQuery.selectAll();
   }
-
 }
