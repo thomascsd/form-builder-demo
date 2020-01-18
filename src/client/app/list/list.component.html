@@ -1,34 +1,26 @@
 <div class="container">
-  <table
-    mat-table
-    [dataSource]="members$ | async"
-    class="example-table"
-    matSort
-    matSortActive="created"
-    matSortDisableClear
-    matSortDirection="desc"
-  >
+  <table mat-table [dataSource]="dataSource" matSort matSortDisableClear>
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
       <td mat-cell *matCellDef="let row">{{ row.name }}</td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
       <td mat-cell *matCellDef="let row">{{ row.email }}</td>
     </ng-container>
 
     <!-- Mobil Column -->
     <ng-container matColumnDef="mobile">
-      <th mat-header-cell *matHeaderCellDef>Mobile</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</th>
       <td mat-cell *matCellDef="let row">{{ row.mobile }}</td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="birthday">
-      <th mat-header-cell *matHeaderCellDef>Birthday</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Birthday</th>
       <td mat-cell *matCellDef="let row">{{ row.birthday }}</td>
     </ng-container>
 
@@ -36,5 +28,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
+  <!-- <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator> -->
 </div>

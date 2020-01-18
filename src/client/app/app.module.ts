@@ -5,14 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MemberComponent } from './member/member.component';
 import { ListComponent } from './list/list.component';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
+    MaterialModule,
     environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   providers: [DynamicFormBuilder],
