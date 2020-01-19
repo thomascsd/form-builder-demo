@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  imports: [CommonModule, MatSnackBarModule, MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [CommonModule, MatSnackBarModule, CdkTableModule, MatSortModule],
   declarations: [],
-  exports: [MatSnackBarModule, MatTableModule, MatSortModule, MatPaginatorModule]
+  exports: [MatSnackBarModule, CdkTableModule, MatSortModule]
 })
 export class MaterialModule {}

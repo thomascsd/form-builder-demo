@@ -33,7 +33,7 @@ const saveMemberRoute: Route = {
 
       const ret = await memberService.saveMember(member);
 
-      return res.json(res);
+      return res.json('ok');
     } catch (error) {
       return res.status(500).json({
         message: `errors:${error}`
