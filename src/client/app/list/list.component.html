@@ -1,5 +1,11 @@
 <div class="container">
-  <table mat-table [dataSource]="dataSource" matSort matSortDisableClear>
+  <table
+    class="table table-bordered"
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortDisableClear
+  >
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>

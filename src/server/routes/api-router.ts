@@ -7,10 +7,18 @@ import { MemberDomain } from '../../shared/models/member';
 
 const getMemberRoute: Route = {
   path: '/member/list',
-  handler(req: express.Request, res: express.Response): any {
-    return res.json({
-      message: 'hello'
-    });
+  async handler(req: express.Request, res: express.Response) {
+    const memberService = new MemberService();
+
+    try {
+      const members = await memberService.getMembers();
+
+      return res.json(members);
+    } catch (error) {
+      return res.status(500).json({
+        message: `errors:${error}`
+      });
+    }
   }
 };
 
@@ -27,7 +35,7 @@ const saveMemberRoute: Route = {
 
       return res.json(res);
     } catch (error) {
-      return res.json({
+      return res.status(500).json({
         message: `errors:${error}`
       });
     }

@@ -25,7 +25,7 @@ export class RestDbService {
     return body;
   }
 
-  getGot() {
+  private getGot() {
     const client = got.extend({
       headers: {
         'cache-control': 'no-cache',

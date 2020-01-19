@@ -59,3 +59,13 @@ export class MemberDomain {
     plainToClassFromExist(this, data);
   }
 }
+
+export interface Member {
+  _id: number | string;
+  name: string;
+  email: string;
+  mobile: string;
+  birthday: string;
+  account: string;
+  password: string;
+}

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MemberQuery } from '../core/state/member.query';
-import { Member } from '../core/state/member.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MemberService } from '../core/state/member.service';
+import { Member } from '../../../shared/models/member';
 
 @Component({
   selector: 'app-list',

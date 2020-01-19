@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
-import { MemberStore } from './member.store';
-import { Member } from './member.model';
 import { tap } from 'rxjs/operators';
-import { MemberDomain } from '../../../../shared/models/member';
+import { MemberStore } from './member.store';
+import { MemberDomain, Member } from '../../../../shared/models/member';
 
 @Injectable({ providedIn: 'root' })
 export class MemberService {
