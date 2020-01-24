@@ -14,9 +14,10 @@ import { SharedModule } from './shared/shared.module';
 import { MemberComponent } from './member/member.component';
 import { ListComponent } from './list/list.component';
 import { environment } from '../environments/environment';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent],
+  declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent, OrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
