@@ -5,11 +5,11 @@
     (ngSubmit)="onSubmit()"
     #form="ngForm"
   >
-    <div>
+    <!-- <div>
       {{ errors | json }}
-    </div>
+    </div> -->
     <div class="form-group">
-      <label for="memberName">Name</label>
+      <label for="memberName">姓名</label>
       <input
         type="text"
         class="form-control"
@@ -35,7 +35,7 @@
       </small>
     </div>
     <div class="form-group">
-      <label for="mobile">Mobile</label>
+      <label for="mobile">手機</label>
       <input
         type="text"
         class="form-control"
@@ -49,7 +49,7 @@
       </small>
     </div>
     <div class="form-group">
-      <label for="birthday">Birthday</label>
+      <label for="birthday">生日</label>
       <div class="row">
         <ng-select
           class="col-md-4"
@@ -79,13 +79,13 @@
           formControlName="birthdayDay"
         ></ng-select>
 
-        <!-- <small class="text-danger" *ngIf="errors.birthday?.length > 0">
-        {{ errors.birthday[0] }}
-      </small> -->
+        <small class="text-danger" *ngIf="errors.birthdayDay?.length > 0">
+          {{ errors.birthday[0] }}
+        </small>
       </div>
     </div>
     <div class="form-group">
-      <label for="account">Account</label>
+      <label for="account">帳號</label>
       <input
         type="text"
         name="account"
@@ -99,7 +99,7 @@
       </small>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">密碼</label>
       <input
         type="password"
         name="password"
