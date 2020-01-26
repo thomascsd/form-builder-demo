@@ -1,4 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
+import { plainToClassFromExist } from 'class-transformer';
 
 export class Order {
   @IsNotEmpty()
@@ -24,4 +25,8 @@ export class Order {
 
   @IsNotEmpty()
   receiveAdress = '';
+
+  constructor(data: any) {
+    plainToClassFromExist(this, data);
+  }
 }

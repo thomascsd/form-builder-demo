@@ -6,13 +6,80 @@
       name="contactName"
       id="contactName"
       class="form-control"
+      formControlName="contactName"
       placeholder="聯絡人"
     />
   </div>
   <div class="form-group">
     <div class="row">
-      <label for="city">縣市</label>
-      <input type="text" name="city" id="city" class="form-control" placeholder="city" />
+      <ng-select
+        class="col-md-4"
+        [items]="county$ | async"
+        placeholder="縣市"
+        labelForId="county"
+        formControlName="county"
+        [searchable]="false"
+      ></ng-select>
+      <ng-select
+        class="col-md-4"
+        [items]="distinct$ | async"
+        [searchable]="false"
+        placeholder="鄉鎮"
+        labelForId="distinct"
+        formControlName="distinct"
+      ></ng-select>
+      <input
+        class="col-md-4"
+        type="text"
+        name="address"
+        id="address"
+        class="form-control"
+        formControlName="address"
+        placeholder="地址"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="sameContact">同聯絡人</label>
+    <input type="checkbox" name="sameContact" id="contactName" class="form-control" />
+  </div>
+  <div>
+    <label for="contactName">收貨人</label>
+    <input
+      type="text"
+      name="contactName"
+      id="contactName"
+      class="form-control"
+      placeholder="收貨人"
+    />
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <ng-select
+        class="col-md-4"
+        [items]="county$ | async"
+        placeholder="縣市"
+        labelForId="receiveCounty"
+        formControlName="receiveCounty"
+        [searchable]="false"
+      ></ng-select>
+      <ng-select
+        class="col-md-4"
+        [items]="distinct$ | async"
+        [searchable]="false"
+        placeholder="鄉鎮"
+        labelForId="receiveDistinct"
+        formControlName="receiveDistinct"
+      ></ng-select>
+      <input
+        class="col-md-4"
+        type="text"
+        name="receiveAdress"
+        id="receiveAdress"
+        class="form-control"
+        formControlName="receiveAdress"
+        placeholder="地址"
+      />
     </div>
   </div>
 </div>
