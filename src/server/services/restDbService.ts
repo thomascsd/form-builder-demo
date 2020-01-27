@@ -1,9 +1,11 @@
 import got from 'got';
-import { ETIME } from 'constants';
 
 export class RestDbService {
-  async getData<T>(tableName: string): Promise<T[]> {
-    const url = `${process.env.RESTDB_URL}${tableName}`;
+  async getData<T>(tableName: string, query?: any[]): Promise<T[]> {
+    let url = `${process.env.RESTDB_URL}${tableName}`;
+    const querystring = this.getQuery(query || []);
+
+    url += querystring;
     const client = this.getGot();
     const body = await client.get(url).json<T[]>();
 
@@ -34,5 +36,18 @@ export class RestDbService {
     });
 
     return client;
+  }
+
+  private getQuery(query: any[]): string {
+    if (!query.length) {
+      return '';
+    }
+
+    const content: string = query.reduce((acct, obj) => {
+      acct += `"${obj['field']}":"${obj['value']}",`;
+      return acct;
+    }, '');
+
+    return content.substr(0, content.length - 1);
   }
 }

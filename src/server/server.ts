@@ -4,6 +4,7 @@ import * as methodOverride from 'method-override';
 import * as logger from 'morgan';
 import * as path from 'path';
 import ApiRouter from './routes/api-router';
+import CountyRouter from './routes/countyRouter';
 
 export default class Server {
   public app: express.Application;
@@ -40,8 +41,10 @@ export default class Server {
   public api() {
     const router: express.Router = express.Router();
     const apiRouter: ApiRouter = new ApiRouter();
+    const countyRouter = new CountyRouter();
 
     apiRouter.setRouter(router);
+    countyRouter.setRouter(router);
     this.app.use('/api', router);
   }
 
