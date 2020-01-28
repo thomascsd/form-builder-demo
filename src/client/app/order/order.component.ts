@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { County } from '../../../shared/models/county';
+import { Distinct } from '../../../shared/models/distinct';
+import { CountyService } from './county.service';
 
 @Component({
   selector: 'app-order',
@@ -7,10 +10,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  county$: Observable<string[]>;
-  distinct$: Observable<string[]>;
+  county$: Observable<County[]>;
+  distinct$: Observable<Distinct[]>;
 
-  constructor() {}
+  constructor(private countyServie: CountyService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.county$ = this.countyServie.getCounties();
+  }
 }

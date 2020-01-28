@@ -13,7 +13,8 @@ export class CountyService {
   async getDistincts(countyCode: string): Promise<Distinct[]> {
     const distincts = await this.db.getData<Distinct>('distinct', [
       {
-        countyCode: countyCode
+        field: 'countyCode',
+        value: countyCode
       }
     ]);
     return distincts;

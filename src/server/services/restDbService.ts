@@ -48,6 +48,6 @@ export class RestDbService {
       return acct;
     }, '');
 
-    return content.substr(0, content.length - 1);
+    return `?q={${content.substr(0, content.length - 1)}}`;
   }
 }

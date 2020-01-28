@@ -15,6 +15,8 @@
       <ng-select
         class="col-md-4"
         [items]="county$ | async"
+        bindValue="countyCode"
+        bindLabel="countyName"
         placeholder="縣市"
         labelForId="county"
         formControlName="county"
@@ -23,6 +25,8 @@
       <ng-select
         class="col-md-4"
         [items]="distinct$ | async"
+        bindValue="id"
+        bindLabel="distinctName"
         [searchable]="false"
         placeholder="鄉鎮"
         labelForId="distinct"
@@ -58,6 +62,8 @@
       <ng-select
         class="col-md-4"
         [items]="county$ | async"
+        bindValue="countyCode"
+        bindLabel="countyName"
         placeholder="縣市"
         labelForId="receiveCounty"
         formControlName="receiveCounty"
@@ -66,6 +72,8 @@
       <ng-select
         class="col-md-4"
         [items]="distinct$ | async"
+        bindValue="id"
+        bindLabel="distinctName"
         [searchable]="false"
         placeholder="鄉鎮"
         labelForId="receiveDistinct"
