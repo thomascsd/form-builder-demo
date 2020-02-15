@@ -1,7 +1,9 @@
 import { County } from '../../shared/models/county';
 import { Distinct } from '../../shared/models/distinct';
 import { RestDbService } from './restDbService';
+import { Inject } from 'typedi';
 
+@Inject()
 export class CountyService {
   private db = new RestDbService();
 

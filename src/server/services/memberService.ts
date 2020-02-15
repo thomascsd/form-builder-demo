@@ -2,7 +2,9 @@ import { genSalt, hash } from 'bcrypt';
 import { RestDbService } from './restDbService';
 import { MemberDomain, Member } from '../../shared/models/member';
 import { classToPlain } from 'class-transformer';
+import { Inject } from 'typedi';
 
+@Inject()
 export class MemberService {
   dbService: RestDbService = new RestDbService();
 

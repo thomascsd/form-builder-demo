@@ -1,34 +1,34 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as methodOverride from 'method-override';
+import { useExpressServer, useContainer } from 'routing-controllers';
+import { Container } from 'typedi';
 import * as logger from 'morgan';
 import * as path from 'path';
-import ApiRouter from './routes/api-router';
-import CountyRouter from './routes/countyRouter';
+import { MemberController } from './controllers/MemberController';
+import { CountyController } from './controllers/CountyController';
 
 export default class Server {
   public app: express.Application;
   private distFolder = path.join(__dirname, '..', 'client');
 
   constructor() {
+    useContainer(Container);
+
     this.app = express();
     this.config();
     this.route();
-    this.api();
+    this.setControllers();
   }
 
-  public config() {
+  private config() {
     this.app.set('view engine', 'html');
     this.app.set('views', 'src');
     this.app.use(logger('dev'));
-    this.app.use(bodyParser.json());
-    this.app.use(methodOverride());
 
     // Server static files from /dist
     this.app.get('*.*', express.static(this.distFolder));
   }
 
-  public route() {
+  private route() {
     this.app.get('*', (req, res, next) => {
       if (req.url.indexOf('/api') !== -1) {
         next();
@@ -38,14 +38,11 @@ export default class Server {
     });
   }
 
-  public api() {
-    const router: express.Router = express.Router();
-    const apiRouter: ApiRouter = new ApiRouter();
-    const countyRouter = new CountyRouter();
-
-    apiRouter.setRouter(router);
-    countyRouter.setRouter(router);
-    this.app.use('/api', router);
+  private setControllers() {
+    useExpressServer(this.app, {
+      routePrefix: 'api',
+      controllers: [MemberController, CountyController]
+    });
   }
 
   public run(port: number) {
