@@ -1,5 +1,7 @@
 import got from 'got';
+import { Inject } from 'typedi';
 
+@Inject()
 export class RestDbService {
   async getData<T>(tableName: string, query?: any[]): Promise<T[]> {
     let url = `${process.env.RESTDB_URL}${tableName}`;

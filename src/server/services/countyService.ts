@@ -5,7 +5,7 @@ import { Inject } from 'typedi';
 
 @Inject()
 export class CountyService {
-  private db = new RestDbService();
+  constructor(private db: RestDbService) {}
 
   async getCounties(): Promise<County[]> {
     const counties = this.db.getData<County>('county');

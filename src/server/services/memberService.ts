@@ -6,10 +6,10 @@ import { Inject } from 'typedi';
 
 @Inject()
 export class MemberService {
-  dbService: RestDbService = new RestDbService();
+  constructor(private db: RestDbService) {}
 
   async getMembers(): Promise<Member[]> {
-    return await this.dbService.getData<Member>('member');
+    return await this.db.getData<Member>('member');
   }
 
   async saveMember(member: MemberDomain) {
@@ -20,6 +20,6 @@ export class MemberService {
     data['birthday'] = `${member.birthdayYear}-${member.birthdayMonth}-${member.birthdayDay}`;
     data['password'] = bPwd;
 
-    return this.dbService.saveData('member', data);
+    return this.db.saveData('member', data);
   }
 }

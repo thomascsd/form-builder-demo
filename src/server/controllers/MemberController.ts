@@ -1,7 +1,9 @@
 import { JsonController, Get, Post, Body } from 'routing-controllers';
 import { MemberService } from '../services/memberService';
 import { MemberDomain } from '../../shared/models/member';
+import { Inject } from 'typedi';
 
+@Inject()
 @JsonController()
 export class MemberController {
   constructor(private memberService: MemberService) {}
