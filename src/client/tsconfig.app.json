@@ -5,5 +5,8 @@
     "baseUrl": "./",
     "types": []
   },
-  "exclude": ["server.ts", "test.ts", "**/*.spec.ts"]
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ]
 }
