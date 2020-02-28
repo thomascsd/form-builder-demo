@@ -12,34 +12,39 @@ import { plainToClassFromExist } from 'class-transformer';
 const options: ValidationOptions = { message: '填寫正式資料' };
 
 export class MemberDomain {
-  @IsNotEmpty(options)
+  @IsNotEmpty({
+    message: '姓名需填寫'
+  })
   name = '';
 
-  @IsNotEmpty(options)
+  @IsNotEmpty({
+    message: 'Email需填寫'
+  })
   @IsEmail()
   email = '';
 
-  @IsNotEmpty(options)
-  @IsMobilePhone('zh-TW', options)
+  @IsNotEmpty({
+    message: '手機需填寫'
+  })
+  @IsMobilePhone('zh-TW', {
+    message: '手機需填寫'
+  })
   mobile = '';
 
   // @IsNotEmpty(options)
   // birthday = '';
   @IsNotEmpty({
-    message: '填寫正式資料',
-    groups: ['birthday']
+    message: '填寫正式資料'
   })
   birthdayYear = '';
 
   @IsNotEmpty({
-    message: '填寫正式資料',
-    groups: ['birthday']
+    message: '填寫正式資料'
   })
   birthdayMonth = '';
 
   @IsNotEmpty({
-    message: '填寫正式資料',
-    groups: ['birthday']
+    message: '填寫正式資料'
   })
   birthdayDay = '';
 
