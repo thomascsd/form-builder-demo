@@ -22,11 +22,10 @@ export class MemberComponent implements OnInit {
     private birthdayService: BithdayService,
     private memberService: MemberService,
     private snackBar: MatSnackBar
-  ) {
-    this.group = this.fb.group(MemberDomain);
-  }
+  ) {}
 
   ngOnInit() {
+    this.group = this.fb.group(MemberDomain);
     this.years = this.birthdayService.getYears();
     this.months = this.birthdayService.getMonth();
   }
