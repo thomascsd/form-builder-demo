@@ -58,7 +58,9 @@ export class MemberComponent implements OnInit {
       delete viewModel.birthdayDay;
 
       this.memberService.saveMember(viewModel).subscribe(() => {
-        this.snackBar.open('儲存成功');
+        this.snackBar.open('儲存成功', '', {
+          duration: 3000
+        });
       });
     }
   }

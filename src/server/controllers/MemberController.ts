@@ -1,7 +1,7 @@
 import { JsonController, Get, Post, Body } from 'routing-controllers';
-import { MemberService } from '../services/memberService';
-import { MemberDomain } from '../../shared/models/member';
 import { Inject } from 'typedi';
+import { MemberService } from '../services/memberService';
+import { Member } from '../../shared/models';
 
 @Inject()
 @JsonController()
@@ -14,7 +14,7 @@ export class MemberController {
   }
 
   @Post('/member/save')
-  saveMember(@Body() member: MemberDomain) {
+  saveMember(@Body() member: Member) {
     this.memberService.saveMember(member);
     return 'ok';
   }
