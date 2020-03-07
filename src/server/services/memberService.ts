@@ -1,25 +1,22 @@
 import { genSalt, hash } from 'bcrypt';
-import { RestDbService } from './restDbService';
-import { MemberDomain, Member } from '../../shared/models/member';
-import { classToPlain } from 'class-transformer';
 import { Inject } from 'typedi';
+import { RestDbService } from './restDbService';
+import { Member } from '../../shared/models/member';
 
 @Inject()
 export class MemberService {
   constructor(private db: RestDbService) {}
 
   async getMembers(): Promise<Member[]> {
-    return await this.db.getData<Member>('member');
+    return await this.db.getDatas<Member>('appYytqUfVu81cjXn', 'member');
   }
 
-  async saveMember(member: MemberDomain) {
-    const data = classToPlain(member);
+  async saveMember(member: Member) {
     const salt = await genSalt();
-    const bPwd = await hash(data['password'], salt);
+    const bPwd = await hash(member.password, salt);
 
-    data['birthday'] = `${member.birthdayYear}-${member.birthdayMonth}-${member.birthdayDay}`;
-    data['password'] = bPwd;
+    member.password = bPwd;
 
-    return this.db.saveData('member', data);
+    return this.db.saveData('appYytqUfVu81cjXn', 'member', member);
   }
 }

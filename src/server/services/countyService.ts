@@ -8,17 +8,14 @@ export class CountyService {
   constructor(private db: RestDbService) {}
 
   async getCounties(): Promise<County[]> {
-    const counties = this.db.getData<County>('county');
+    const counties = this.db.getDatas<County>('appYytqUfVu81cjXn', 'county');
     return counties;
   }
 
   async getDistincts(countyCode: string): Promise<Distinct[]> {
-    const distincts = await this.db.getData<Distinct>('distinct', [
-      {
-        field: 'countyCode',
-        value: countyCode
-      }
-    ]);
+    const distincts = await this.db.getDatas<Distinct>('appYytqUfVu81cjXn', 'distinct', {
+      filterByFormula: `{countyCode}=${countyCode}`
+    });
     return distincts;
   }
 }

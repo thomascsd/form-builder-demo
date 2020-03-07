@@ -3,7 +3,7 @@ import { ID } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { MemberStore } from './member.store';
-import { MemberDomain, Member } from '../../../../shared/models/member';
+import { Member } from '../../../../shared/models';
 
 @Injectable({ providedIn: 'root' })
 export class MemberService {
@@ -29,7 +29,7 @@ export class MemberService {
     this.memberStore.remove(id);
   }
 
-  saveMember(member: MemberDomain) {
+  saveMember(member: Member) {
     const url = '/api/member/save';
     return this.client.post(url, member);
   }

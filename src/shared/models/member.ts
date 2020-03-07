@@ -8,10 +8,11 @@ import {
   MaxLength
 } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
+import { BaseModel } from './BaseModel';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
 
-export class MemberDomain {
+export class Member extends BaseModel {
   @IsNotEmpty({
     message: '姓名需填寫'
   })
@@ -31,22 +32,7 @@ export class MemberDomain {
   })
   mobile = '';
 
-  // @IsNotEmpty(options)
-  // birthday = '';
-  @IsNotEmpty({
-    message: '填寫正式資料'
-  })
-  birthdayYear = '';
-
-  @IsNotEmpty({
-    message: '填寫正式資料'
-  })
-  birthdayMonth = '';
-
-  @IsNotEmpty({
-    message: '填寫正式資料'
-  })
-  birthdayDay = '';
+  birthday: string;
 
   @IsNotEmpty(options)
   @MinLength(6, options)
@@ -61,16 +47,7 @@ export class MemberDomain {
   password = '';
 
   constructor(data?: any) {
+    super();
     plainToClassFromExist(this, data);
   }
-}
-
-export interface Member {
-  _id: number | string;
-  name: string;
-  email: string;
-  mobile: string;
-  birthday: string;
-  account: string;
-  password: string;
 }

@@ -2,9 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicFormGroup, DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MemberDomain } from '../../../shared/models/member';
+import { IsNotEmpty } from 'class-validator';
+import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
+
+class MemberViewModel extends Member {
+  @IsNotEmpty({
+    message: '填寫正式資料'
+  })
+  birthdayYear = '';
+
+  @IsNotEmpty({
+    message: '填寫正式資料'
+  })
+  birthdayMonth = '';
+
+  @IsNotEmpty({
+    message: '填寫正式資料'
+  })
+  birthdayDay = '';
+}
 
 @Component({
   selector: 'app-member',
@@ -12,11 +30,11 @@ import { MemberService } from '../core/state/member.service';
   styleUrls: ['./member.component.scss']
 })
 export class MemberComponent implements OnInit {
-  group: DynamicFormGroup<MemberDomain>;
+  group: DynamicFormGroup<MemberViewModel>;
   years: string[];
   months: string[];
   days: string[];
-  // fb = new DynamicFormBuilder();
+
   constructor(
     private fb: DynamicFormBuilder,
     private birthdayService: BithdayService,
@@ -25,7 +43,7 @@ export class MemberComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.group = this.fb.group(MemberDomain);
+    this.group = this.fb.group(MemberViewModel);
     this.years = this.birthdayService.getYears();
     this.months = this.birthdayService.getMonth();
   }
@@ -33,7 +51,13 @@ export class MemberComponent implements OnInit {
   onSubmit() {
     this.group.validateAllFormFields();
     if (this.group.valid) {
-      this.memberService.saveMember(this.group.object).subscribe(() => {
+      const viewModel = { ...this.group.object };
+      viewModel.birthday = `${viewModel.birthdayYear}-${viewModel.birthdayMonth}-${viewModel.birthdayDay}`;
+      delete viewModel.birthdayYear;
+      delete viewModel.birthdayMonth;
+      delete viewModel.birthdayDay;
+
+      this.memberService.saveMember(viewModel).subscribe(() => {
         this.snackBar.open('儲存成功');
       });
     }

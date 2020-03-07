@@ -1,5 +1,6 @@
-export interface Distinct {
-  id: number;
+import { BaseModel } from './BaseModel';
+
+export interface Distinct extends BaseModel {
   countyCode: string;
   countyName: string;
   distinctName: string;

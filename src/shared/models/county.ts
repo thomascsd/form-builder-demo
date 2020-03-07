@@ -1,5 +1,6 @@
-export interface County {
-  id: number;
+import { BaseModel } from './index';
+
+export interface County extends BaseModel {
   countyCode: string;
   countyName: string;
 }

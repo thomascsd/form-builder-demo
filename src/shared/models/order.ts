@@ -1,7 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
+import { BaseModel } from './BaseModel';
 
-export class Order {
+export class Order extends BaseModel {
   @IsNotEmpty()
   contactName = '';
 
@@ -27,6 +28,7 @@ export class Order {
   receiveAdress = '';
 
   constructor(data: any) {
+    super();
     plainToClassFromExist(this, data);
   }
 }
