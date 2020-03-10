@@ -49,7 +49,7 @@ export class MemberComponent implements OnInit {
   }
 
   onSubmit() {
-    this.group.validateAllFormFields();
+    this.group.validate();
     if (this.group.valid) {
       const viewModel = { ...this.group.object };
       viewModel.birthday = `${viewModel.birthdayYear}-${viewModel.birthdayMonth}-${viewModel.birthdayDay}`;
