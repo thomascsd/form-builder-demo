@@ -28,7 +28,7 @@ import { OrderComponent } from './order/order.component';
     NgSelectModule,
     HttpClientModule,
     MaterialModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot()
+    environment.production ? [] : AkitaNgDevtools
   ],
   providers: [DynamicFormBuilder],
   bootstrap: [AppComponent]
