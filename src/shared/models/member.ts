@@ -27,9 +27,15 @@ export class Member extends BaseModel {
   @IsNotEmpty({
     message: '手機需填寫',
   })
-  @IsMobilePhone('zh-TW', {
-    message: '手機需填寫',
-  })
+  @IsMobilePhone(
+    'zh-TW',
+    {
+      strictMode: false,
+    },
+    {
+      message: '手機需填寫',
+    }
+  )
   mobile = '';
 
   birthday: string;
