@@ -1,11 +1,11 @@
 import { County } from '../../shared/models/county';
 import { Distinct } from '../../shared/models/distinct';
-import { RestDbService } from './restDbService';
-import { Inject } from 'typedi';
+import { DataService } from '@thomascsd/stools';
+import { Service } from 'typedi';
 
-@Inject()
+@Service()
 export class CountyService {
-  constructor(private db: RestDbService) {}
+  constructor(private db: DataService) {}
 
   async getCounties(): Promise<County[]> {
     const counties = this.db.getDatas<County>('appYytqUfVu81cjXn', 'county');
@@ -14,7 +14,7 @@ export class CountyService {
 
   async getDistincts(countyCode: string): Promise<Distinct[]> {
     const distincts = await this.db.getDatas<Distinct>('appYytqUfVu81cjXn', 'distinct', {
-      filterByFormula: `{countyCode}=${countyCode}`
+      filterByFormula: `{countyCode}=${countyCode}`,
     });
     return distincts;
   }

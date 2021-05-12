@@ -5,30 +5,30 @@ import {
   ValidationOptions,
   Matches,
   MinLength,
-  MaxLength
+  MaxLength,
 } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
-import { BaseModel } from './BaseModel';
+import { BaseModel } from '@thomascsd/stools';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
 
 export class Member extends BaseModel {
   @IsNotEmpty({
-    message: '姓名需填寫'
+    message: '姓名需填寫',
   })
   name = '';
 
   @IsNotEmpty({
-    message: 'Email需填寫'
+    message: 'Email需填寫',
   })
   @IsEmail()
   email = '';
 
   @IsNotEmpty({
-    message: '手機需填寫'
+    message: '手機需填寫',
   })
   @IsMobilePhone('zh-TW', {
-    message: '手機需填寫'
+    message: '手機需填寫',
   })
   mobile = '';
 
