@@ -1,11 +1,11 @@
 import { genSalt, hash } from 'bcrypt';
-import { Inject } from 'typedi';
-import { RestDbService } from './restDbService';
+import { DataService } from '@thomascsd/stools';
+import { Service } from 'typedi';
 import { Member } from '../../shared/models/member';
 
-@Inject()
+@Service()
 export class MemberService {
-  constructor(private db: RestDbService) {}
+  constructor(private db: DataService) {}
 
   async getMembers(): Promise<Member[]> {
     return await this.db.getDatas<Member>('appYytqUfVu81cjXn', 'member');

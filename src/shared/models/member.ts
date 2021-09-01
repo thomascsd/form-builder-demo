@@ -8,7 +8,7 @@ import {
   MaxLength,
 } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
-import { BaseModel } from './BaseModel';
+import { BaseModel } from '@thomascsd/stools';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
 
@@ -26,10 +26,22 @@ export class Member extends BaseModel {
 
   @IsNotEmpty({
     message: '手機需填寫',
+<<<<<<< HEAD
   })
   @IsMobilePhone('zh-TW', {
     strictMode: false,
+=======
+>>>>>>> master
   })
+  @IsMobilePhone(
+    'zh-TW',
+    {
+      strictMode: false,
+    },
+    {
+      message: '手機需填寫',
+    }
+  )
   mobile = '';
 
   birthday: string;

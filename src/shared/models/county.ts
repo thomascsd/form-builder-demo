@@ -1,4 +1,4 @@
-import { BaseModel } from './index';
+import { BaseModel } from '@thomascsd/stools';
 
 export interface County extends BaseModel {
   countyCode: string;
