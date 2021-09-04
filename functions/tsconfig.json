@@ -2,10 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "../../dist/",
+    "outDir": "../dist/",
     "baseUrl": "",
     "target": "es2017"
   },
-  "baseUrl": "../server",
-  "include": ["../server/**/*"]
+  "baseUrl": "../functions",
+  "include": ["../functions/**/*"]
 }
