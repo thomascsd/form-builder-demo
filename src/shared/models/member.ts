@@ -26,12 +26,6 @@ export class Member extends BaseModel {
 
   @IsNotEmpty({
     message: '手機需填寫',
-<<<<<<< HEAD
-  })
-  @IsMobilePhone('zh-TW', {
-    strictMode: false,
-=======
->>>>>>> master
   })
   @IsMobilePhone(
     'zh-TW',
