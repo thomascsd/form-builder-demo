@@ -1,14 +1,12 @@
 import { genSalt, hash } from 'bcrypt';
-import { DataService } from '@thomascsd/stools';
-import { Service } from 'typedi';
-import { Member } from '../../shared/models/member';
+import { DataFunctionService } from '@thomascsd/stools';
+import { Member } from '@shared/models/member';
 
-@Service()
 export class MemberService {
-  constructor(private db: DataService) {}
+  constructor(private db: DataFunctionService) {}
 
   async getMembers(): Promise<Member[]> {
-    return await this.db.getDatas<Member>('appYytqUfVu81cjXn', 'member');
+    return await this.db.getDatas<Member>('member');
   }
 
   async saveMember(member: Member) {
@@ -17,6 +15,12 @@ export class MemberService {
 
     member.password = bPwd;
 
-    return this.db.saveData('appYytqUfVu81cjXn', 'member', member);
+    return this.db.saveData('member', member);
   }
+}
+
+export function getMemberService() {
+  var db = new DataFunctionService(process.env.AIRTABLE_API, 'appYytqUfVu81cjXn');
+  var memberSerivce = new MemberService(db);
+  return memberSerivce;
 }

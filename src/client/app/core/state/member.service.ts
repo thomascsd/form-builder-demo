@@ -10,8 +10,8 @@ export class MemberService {
   constructor(private memberStore: MemberStore, private client: HttpClient) {}
 
   get() {
-    return this.client.get<Member[]>('/api/member/list').pipe(
-      tap(entities => {
+    return this.client.get<Member[]>('/.netlify/functions/member/list').pipe(
+      tap((entities) => {
         this.memberStore.set(entities);
       })
     );
@@ -30,7 +30,7 @@ export class MemberService {
   }
 
   saveMember(member: Member) {
-    const url = '/api/member/save';
+    const url = '/.netlify/functions/member/save';
     return this.client.post(url, member);
   }
 }

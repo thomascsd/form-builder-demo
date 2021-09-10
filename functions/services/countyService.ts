@@ -17,3 +17,9 @@ export class CountyService {
     return distincts;
   }
 }
+
+export function getCountyService(): CountyService {
+  const db = new DataFunctionService(process.env.AIRTABLE_API, 'appYytqUfVu81cjXn');
+  const countyService = new CountyService(db);
+  return countyService;
+}

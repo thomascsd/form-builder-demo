@@ -9,13 +9,13 @@ export class CountyService {
   constructor(private httpClient: HttpClient) {}
 
   getCounties(): Observable<County[]> {
-    return this.httpClient.get<County[]>('/api/county');
+    return this.httpClient.get<County[]>('/.netlify/functions/county');
   }
 
   getDistincts(countyCode: string): Observable<Distinct[]> {
     const params = { countyCode: countyCode };
-    return this.httpClient.get<Distinct[]>('/api/distinct', {
-      params: params
+    return this.httpClient.get<Distinct[]>('/.netlify/functions/distinct', {
+      params: params,
     });
   }
 }
