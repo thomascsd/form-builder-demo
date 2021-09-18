@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "license": "MIT",
   "scripts": {
-    "start": "node ./dist/server/index.js",
+    "start": "ng serve",
     "dev": "netlify dev",
     "dev:client": "ng serve --proxy-config proxy.conf.json",
     "build:client": "ng build --configuration production",
