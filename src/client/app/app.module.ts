@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { MaterialModule } from './material/material.module';
@@ -28,9 +27,8 @@ import { OrderComponent } from './order/order.component';
     NgSelectModule,
     HttpClientModule,
     MaterialModule,
-    environment.production ? [] : AkitaNgDevtools
+    environment.production ? [] : AkitaNgDevtools,
   ],
-  providers: [DynamicFormBuilder],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

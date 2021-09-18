@@ -1,10 +1,5 @@
 <div class="container">
-  <form
-    [formGroup]="group"
-    *ngIf="group?.customValidateErrors | async as errors"
-    (ngSubmit)="onSubmit()"
-    #form="ngForm"
-  >
+  <form [formGroup]="group" (ngSubmit)="onSubmit()" #form="ngForm">
     <!-- <div>
       {{ errors | json }}
     </div> -->
@@ -17,71 +12,40 @@
         placeholder="name"
         formControlName="name"
       />
-      <small class="text-danger" *ngIf="errors.name?.length > 0">
-        {{ errors.name[0] }}
-      </small>
     </div>
     <div class="form-group">
       <label for="memberEmail">Email</label>
       <input
         type="text"
+        inputmode="email"
         class="form-control"
         id="memberEmail"
         placeholder="Email"
         formControlName="email"
       />
-      <small class="text-danger" *ngIf="errors.email?.length > 0">
-        {{ errors.email[0] }}
-      </small>
     </div>
     <div class="form-group">
       <label for="mobile">手機</label>
       <input
         type="text"
+        inputmode="numeric"
         class="form-control"
         id="mobile"
         placeholder="Mobile"
         formControlName="mobile"
         maxlength="10"
       />
-      <small class="text-danger" *ngIf="errors.mobile?.length > 0">
-        {{ errors.mobile[0] }}
-      </small>
     </div>
     <div class="form-group">
       <label for="birthday">生日</label>
       <div class="row">
-        <ng-select
-          class="col-md-4"
-          [items]="years"
-          placeholder="年"
-          labelForId="birthdayYear"
-          formControlName="birthdayYear"
-          [searchable]="false"
-          #ctlYear
-        ></ng-select>
-        <ng-select
-          class="col-md-4"
-          [items]="months"
-          [searchable]="false"
-          placeholder="月"
-          labelForId="birthdayMonth"
-          formControlName="birthdayMonth"
-          #ctlMonth
-          (change)="onMonthChange($event)"
-        ></ng-select>
-        <ng-select
-          class="col-md-4"
-          [items]="days"
-          [searchable]="false"
-          placeholder="日"
-          labelForId="birthdayDay"
-          formControlName="birthdayDay"
-        ></ng-select>
-
-        <small class="text-danger" *ngIf="errors.birthdayDay?.length > 0">
-          {{ errors.birthdayDay[0] }}
-        </small>
+        <input
+          type="text"
+          id="birthday"
+          formControlName="birthday"
+          maxlength="10"
+          class="form-control"
+        />
       </div>
     </div>
     <div class="form-group">
@@ -94,9 +58,6 @@
         placeholder="Account"
         formControlName="account"
       />
-      <small class="text-danger" *ngIf="errors.account?.length > 0">
-        {{ errors.account[0] }}
-      </small>
     </div>
     <div class="form-group">
       <label for="password">密碼</label>
@@ -108,12 +69,7 @@
         placeholder="Password"
         formControlName="password"
       />
-      <small class="text-danger" *ngIf="errors.password?.length > 0">
-        {{ errors.password[0] }}
-      </small>
     </div>
-    <button class="btn btn-primary">
-      Save
-    </button>
+    <button class="btn btn-primary">Save</button>
   </form>
 </div>

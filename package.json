@@ -1,16 +1,12 @@
 {
   "name": "form-builder-demo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "start": "node ./dist/server/index.js",
-    "dev:server": "nodemon -e ts -w ./server -x npm run server",
+    "dev": "netlify dev",
     "dev:client": "ng serve --proxy-config proxy.conf.json",
-    "server": "ts-node --project src/server/tsconfig.json ./src/server/index.ts",
-    "deploy": "git push origin master && git push heroku master",
-    "build": "npm run build:server && npm run build:client",
     "build:client": "ng build --configuration production",
-    "build:server": "tsc --project src/server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -62,7 +58,6 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
-    "ngx-dynamic-form-builder": "^1.12.0",
     "protractor": "~7.0.0",
     "rimraf": "^3.0.2",
     "routing-controllers": "^0.9.0",
