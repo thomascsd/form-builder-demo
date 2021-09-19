@@ -6,7 +6,7 @@
     "start": "ng serve",
     "dev": "netlify dev",
     "dev:client": "ng serve --proxy-config proxy.conf.json",
-    "build:client": "ng build --configuration production",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
