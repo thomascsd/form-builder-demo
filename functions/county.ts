@@ -1,8 +1,8 @@
-import { config } from 'dotenv';
 import { Handler } from '@netlify/functions';
+import { loadEnv } from '@thomascsd/stools';
 import { CountyService, getCountyService } from './services/countyService';
 
-config({ path: './.env' });
+loadEnv();
 
 const handler: Handler = async (event, context) => {
   const countyService: CountyService = getCountyService();
