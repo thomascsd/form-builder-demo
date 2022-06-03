@@ -96,13 +96,6 @@
             ],
             "assets": ["src/client/assets", "src/client/favicon.ico"]
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["src/client/tsconfig.app.json", "src/client/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -116,13 +109,6 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "form-builder-demo:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
