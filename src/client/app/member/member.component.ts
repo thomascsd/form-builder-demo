@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, NgForm, Validators, UntypedFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IsNotEmpty } from 'class-validator';
 import { Member } from '../../../shared/models';
@@ -12,13 +12,13 @@ import { MemberService } from '../core/state/member.service';
   styleUrls: ['./member.component.scss'],
 })
 export class MemberComponent implements OnInit {
-  group: FormGroup;
+  group: UntypedFormGroup;
   years: string[];
   months: string[];
   days: string[];
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private birthdayService: BithdayService,
     private memberService: MemberService,
     private snackBar: MatSnackBar

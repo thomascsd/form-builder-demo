@@ -114,7 +114,6 @@
       }
     }
   },
-  "defaultProject": "form-builder-demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
@@ -125,7 +124,9 @@
     }
   },
   "cli": {
-    "defaultCollection": "@datorama/akita",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@datorama/akita"
+    ]
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { County } from '../../../shared/models/county';
 import { Distinct } from '../../../shared/models/distinct';
@@ -13,9 +13,9 @@ import { CountyService } from './county.service';
 export class OrderComponent implements OnInit {
   county$: Observable<County[]>;
   distinct$: Observable<Distinct[]>;
-  group: FormGroup;
+  group: UntypedFormGroup;
 
-  constructor(private countyServie: CountyService, private fb: FormBuilder) {
+  constructor(private countyServie: CountyService, private fb: UntypedFormBuilder) {
     this.group = this.fb.group({
       contactName: ['', Validators.required],
       county: ['', Validators.required],
