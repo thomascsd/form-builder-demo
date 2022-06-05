@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, NgForm, Validators, UntypedFormBuilder } from '@angular/forms';
+import { FormGroup, NgForm, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IsNotEmpty } from 'class-validator';
 import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
+
+interface MemberForm {
+  [x: string]: FormControl<unknown>;
+  id?: FormControl<string>;
+  name: FormControl<string>;
+  email: FormControl<string>;
+  mobile: FormControl<string>;
+  birthday: FormControl<string>;
+  account: FormControl<string>;
+  password: FormControl<string>;
+}
 
 @Component({
   selector: 'app-member',
@@ -12,27 +22,29 @@ import { MemberService } from '../core/state/member.service';
   styleUrls: ['./member.component.scss'],
 })
 export class MemberComponent implements OnInit {
-  group: UntypedFormGroup;
+  group: FormGroup<MemberForm>;
   years: string[];
   months: string[];
   days: string[];
 
   constructor(
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private birthdayService: BithdayService,
     private memberService: MemberService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
-    this.group = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      mobile: ['', Validators.required],
-      birthday: ['', Validators.required],
-      account: ['', Validators.required],
-      password: ['', Validators.required],
+    this.group = this.fb.nonNullable.group<Member>({
+      name: '',
+      email: '',
+      mobile: '',
+      birthday: '',
+      account: '',
+      password: '',
     });
+
+    //lgroup.value.id;
     this.years = this.birthdayService.getYears();
     this.months = this.birthdayService.getMonth();
   }
@@ -41,13 +53,7 @@ export class MemberComponent implements OnInit {
     //this.group.validate();
 
     if (this.group.valid) {
-      const viewModel = { ...this.group.value };
-      viewModel.birthday = `${viewModel.birthdayYear}-${viewModel.birthdayMonth}-${viewModel.birthdayDay}`;
-      delete viewModel.birthdayYear;
-      delete viewModel.birthdayMonth;
-      delete viewModel.birthdayDay;
-
-      this.memberService.saveMember(viewModel).subscribe(() => {
+      this.memberService.saveMember(this.group.value as Member).subscribe(() => {
         this.snackBar.open('儲存成功', '', {
           duration: 3000,
         });
@@ -65,17 +71,5 @@ export class MemberComponent implements OnInit {
     }
 
     return cssClass;
-  }
-
-  onMonthChange(month: string) {
-    const year = this.group.value.birthdayYear;
-    const d = new Date(parseInt(year, 10), parseInt(month, 10), 0);
-    const list: string[] = [];
-
-    for (let day = 1; day <= d.getDate(); day++) {
-      list.push(day.toString());
-    }
-
-    this.days = list;
   }
 }
