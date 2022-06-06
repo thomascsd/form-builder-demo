@@ -35,14 +35,19 @@ export class MemberComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.group = this.fb.nonNullable.group<Member>({
-      name: '',
-      email: '',
-      mobile: '',
-      birthday: '',
-      account: '',
-      password: '',
-    });
+    this.group = this.fb.nonNullable.group<Member>(
+      {
+        name: '',
+        email: '',
+        mobile: '',
+        birthday: '',
+        account: '',
+        password: '',
+      },
+      {
+        validators: Validators.required,
+      }
+    );
 
     //lgroup.value.id;
     this.years = this.birthdayService.getYears();
