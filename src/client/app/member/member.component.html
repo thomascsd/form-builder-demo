@@ -12,6 +12,9 @@
         placeholder="name"
         formControlName="name"
       />
+      <div class="text-error" *ngIf="group.controls.name.errors.hasError">
+        {{ group.controls.name.errors.msg }}
+      </div>
     </div>
     <div class="form-group">
       <label for="memberEmail">Email</label>
@@ -23,6 +26,9 @@
         placeholder="Email"
         formControlName="email"
       />
+      <div class="text-error" *ngIf="group.controls.email.errors.hasError">
+        {{ group.controls.email.errors.msg }}
+      </div>
     </div>
     <div class="form-group">
       <label for="mobile">手機</label>
@@ -35,6 +41,9 @@
         formControlName="mobile"
         maxlength="10"
       />
+      <div class="text-error" *ngIf="group.controls.mobile.errors.hasError">
+        {{ group.controls.mobile.errors.msg }}
+      </div>
     </div>
     <div class="form-group">
       <label for="birthday">生日</label>
@@ -47,6 +56,9 @@
           class="form-control"
         />
       </div>
+      <div class="text-error" *ngIf="group.controls.birthday.errors.hasError">
+        {{ group.controls.birthday.errors.msg }}
+      </div>
     </div>
     <div class="form-group">
       <label for="account">帳號</label>
@@ -58,6 +70,9 @@
         placeholder="Account"
         formControlName="account"
       />
+      <div class="text-error" *ngIf="group.controls.account.errors.hasError">
+        {{ group.controls.account.errors.msg }}
+      </div>
     </div>
     <div class="form-group">
       <label for="password">密碼</label>
@@ -69,6 +84,9 @@
         placeholder="Password"
         formControlName="password"
       />
+      <div class="text-error" *ngIf="group.controls.password.errors.hasError">
+        {{ group.controls.password.errors.msg }}
+      </div>
     </div>
     <button class="btn btn-primary">Save</button>
   </form>

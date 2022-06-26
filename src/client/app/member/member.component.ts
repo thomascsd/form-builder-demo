@@ -4,9 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
+import { utilValidator } from '../utils/validator';
 
 interface MemberForm {
-  [x: string]: FormControl<unknown>;
   id?: FormControl<string>;
   name: FormControl<string>;
   email: FormControl<string>;
@@ -35,19 +35,14 @@ export class MemberComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.group = this.fb.nonNullable.group<Member>(
-      {
-        name: '',
-        email: '',
-        mobile: '',
-        birthday: '',
-        account: '',
-        password: '',
-      },
-      {
-        validators: Validators.required,
-      }
-    );
+    this.group = this.fb.nonNullable.group({
+      name: new FormControl('', utilValidator(new Member(), 'name')),
+      email: new FormControl('', utilValidator(new Member(), 'email')),
+      mobile: new FormControl('', utilValidator(new Member(), 'mobile')),
+      birthday: new FormControl('', utilValidator(new Member(), 'birthday')),
+      account: new FormControl('', utilValidator(new Member(), 'account')),
+      password: new FormControl('', utilValidator(new Member(), 'password')),
+    });
 
     //lgroup.value.id;
     this.years = this.birthdayService.getYears();
