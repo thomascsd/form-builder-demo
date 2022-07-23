@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
-import { BaseModel } from '@thomascsd/stools';
+import { BaseModel } from './baseModel';
 
 export class Order extends BaseModel {
   @IsNotEmpty()

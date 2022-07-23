@@ -8,7 +8,7 @@ import {
   MaxLength,
 } from 'class-validator';
 import { plainToClassFromExist } from 'class-transformer';
-import { BaseModel } from '@thomascsd/stools';
+import { BaseModel } from './baseModel';
 
 const options: ValidationOptions = { message: '填寫正式資料' };
 

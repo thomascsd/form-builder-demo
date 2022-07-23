@@ -10,9 +10,13 @@ export function utilValidator<T extends {}>(model: T, prop: string): ValidatorFn
     });
 
     if (errors && errors.length) {
-      const msg = errors.map(({ constraints }) => Object.values(constraints).join(', '));
+      const propError = errors.filter((e) => e.property == prop);
 
-      return { hasError: true, msg };
+      if (propError.length > 0) {
+        const msg = propError.map(({ constraints }) => Object.values(constraints).join(', '));
+
+        return { hasError: true, msg };
+      }
     }
 
     return null;
