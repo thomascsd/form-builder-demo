@@ -5,16 +5,7 @@ import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
 import { utilValidator } from '../utils/validator';
-
-interface MemberForm {
-  id?: FormControl<string>;
-  name: FormControl<string>;
-  email: FormControl<string>;
-  mobile: FormControl<string>;
-  birthday: FormControl<string>;
-  account: FormControl<string>;
-  password: FormControl<string>;
-}
+import { ToForm } from '../utils/toForm';
 
 @Component({
   selector: 'app-member',
@@ -22,7 +13,7 @@ interface MemberForm {
   styleUrls: ['./member.component.scss'],
 })
 export class MemberComponent implements OnInit {
-  group: FormGroup<MemberForm>;
+  group: FormGroup<ToForm<Member>>;
   years: string[];
   months: string[];
   days: string[];
