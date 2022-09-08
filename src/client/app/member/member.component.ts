@@ -26,7 +26,7 @@ export class MemberComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.group = this.fb.nonNullable.group({
+    this.group = this.fb.group({
       name: new FormControl('', utilValidator(new Member(), 'name')),
       email: new FormControl('', utilValidator(new Member(), 'email')),
       mobile: new FormControl('', utilValidator(new Member(), 'mobile')),
@@ -41,8 +41,6 @@ export class MemberComponent implements OnInit {
   }
 
   onSubmit() {
-    //this.group.validate();
-
     if (this.group.valid) {
       this.memberService.saveMember(this.group.value as Member).subscribe(() => {
         this.snackBar.open('儲存成功', '', {

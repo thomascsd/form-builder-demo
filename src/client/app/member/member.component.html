@@ -26,8 +26,8 @@
         placeholder="Email"
         formControlName="email"
       />
-      <div class="text-danger">
-        {{ group.controls.email.errors | json }}
+      <div class="text-danger" *ngIf="group.controls.email.errors?.hasError">
+        {{ group.controls.email.errors?.msg }}
       </div>
     </div>
     <div class="form-group">
@@ -70,7 +70,7 @@
         placeholder="Account"
         formControlName="account"
       />
-      <div class="tex t-danger" *ngIf="group.controls.account.errors?.hasError">
+      <div class="text-danger" *ngIf="group.controls.account.errors?.hasError">
         {{ group.controls.account.errors?.msg }}
       </div>
     </div>
@@ -88,6 +88,6 @@
         {{ group.controls.password.errors?.msg }}
       </div>
     </div>
-    <button class="btn btn-primary">Save</button>
+    <button class="btn btn-primary" [disabled]="!group.valid">Save</button>
   </form>
 </div>
