@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "form-builder-demo:build"
+            "buildTarget": "form-builder-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "form-builder-demo:build:production"
+              "buildTarget": "form-builder-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "form-builder-demo:build"
+            "buildTarget": "form-builder-demo:build"
           }
         },
         "test": {
