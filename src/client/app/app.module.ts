@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -26,7 +25,6 @@ import { OrderComponent } from './order/order.component';
     ReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
-    MaterialModule,
     environment.production ? [] : AkitaNgDevtools,
   ],
   bootstrap: [AppComponent],

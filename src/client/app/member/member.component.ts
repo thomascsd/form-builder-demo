@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, Validators, FormBuilder, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
@@ -21,8 +20,7 @@ export class MemberComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private birthdayService: BithdayService,
-    private memberService: MemberService,
-    private snackBar: MatSnackBar
+    private memberService: MemberService
   ) {}
 
   ngOnInit() {
@@ -43,9 +41,9 @@ export class MemberComponent implements OnInit {
   onSubmit() {
     if (this.group.valid) {
       this.memberService.saveMember(this.group.value as Member).subscribe(() => {
-        this.snackBar.open('儲存成功', '', {
-          duration: 3000,
-        });
+        // this.snackBar.open('儲存成功', '', {
+        //   duration: 3000,
+        // });
       });
     }
   }
