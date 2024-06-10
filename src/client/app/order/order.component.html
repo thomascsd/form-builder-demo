@@ -1,40 +1,47 @@
 <div class="container">
   <form [formGroup]="group">
-    <div class="form-group">
-      <label for="contactName">聯絡人</label>
-      <input
-        type="text"
-        name="contactName"
-        id="contactName"
-        class="form-control"
-        formControlName="contactName"
-        placeholder="聯絡人"
-      />
+    <div class="field">
+      <label class="label">聯絡人</label>
+      <div class="control">
+        <input
+          type="text"
+          name="contactName"
+          id="contactName"
+          formControlName="contactName"
+          placeholder="聯絡人"
+        />
+      </div>
     </div>
-    <div class="form-group">
-      <div class="row">
-        <ng-select
-          class="col-md-3"
-          [items]="county$ | async"
-          bindValue="countyCode"
-          bindLabel="countyName"
-          placeholder="縣市"
-          labelForId="county"
-          formControlName="county"
-          [searchable]="false"
-          (change)="onCountyChange($event)"
-        ></ng-select>
-        <ng-select
-          class="col-md-3"
-          [items]="distinct$ | async"
-          bindValue="id"
-          bindLabel="distinctName"
-          [searchable]="false"
-          placeholder="鄉鎮"
-          labelForId="distinct"
-          formControlName="distinct"
-        ></ng-select>
-        <div class="col-md-3">
+
+    <div class="field">
+      <div class="columns">
+        <div class="column">
+          <ng-select
+            [items]="county$ | async"
+            bindValue="countyCode"
+            bindLabel="countyName"
+            placeholder="縣市"
+            labelForId="county"
+            formControlName="county"
+            [searchable]="false"
+            (change)="onCountyChange($event)"
+          ></ng-select>
+        </div>
+
+        <div class="column">
+          <ng-select
+            class="col-md-3"
+            [items]="distinct$ | async"
+            bindValue="id"
+            bindLabel="distinctName"
+            [searchable]="false"
+            placeholder="鄉鎮"
+            labelForId="distinct"
+            formControlName="distinct"
+          ></ng-select>
+        </div>
+
+        <div class="column">
           <input
             type="text"
             name="address"
@@ -46,24 +53,27 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="sameContact">同聯絡人</label>
-      <input type="checkbox" name="sameContact" id="contactName" class="form-control" />
+    <div class="field">
+      <label class="label" for="sameContact">同聯絡人</label>
+      <div class="control">
+        <input type="checkbox" name="sameContact" id="contactName" class="form-control" />
+      </div>
     </div>
-    <div class="form-group">
-      <label for="contactName">收貨人</label>
-      <input
-        type="text"
-        name="contactName"
-        id="contactName"
-        class="form-control"
-        placeholder="收貨人"
-      />
+    <div class="field">
+      <label class="label" for="contactName">收貨人</label>
+      <div class="control">
+        <input
+          type="text"
+          name="contactName"
+          id="contactName"
+          class="form-control"
+          placeholder="收貨人"
+        />
+      </div>
     </div>
-    <div class="form-group">
+    <div class="field">
       <div class="row">
         <ng-select
-          class="col-md-3"
           [items]="county$ | async"
           bindValue="countyCode"
           bindLabel="countyName"
@@ -74,7 +84,6 @@
           (change)="onCountyChange($event)"
         ></ng-select>
         <ng-select
-          class="col-md-3"
           [items]="distinct$ | async"
           bindValue="id"
           bindLabel="distinctName"
@@ -83,7 +92,7 @@
           labelForId="receiveDistinct"
           formControlName="receiveDistinct"
         ></ng-select>
-        <div class="col-md-3">
+        <div class="column">
           <input
             type="text"
             name="receiveAdress"
