@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,19 +14,13 @@ import { ListComponent } from './list/list.component';
 import { environment } from '../environments/environment';
 import { OrderComponent } from './order/order.component';
 
-@NgModule({
-  declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent, OrderComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgSelectModule,
-    HttpClientModule,
-    environment.production ? [] : AkitaNgDevtools,
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent, OrderComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgSelectModule,
+        environment.production ? [] : AkitaNgDevtools], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
