@@ -3,91 +3,83 @@
     <!-- <div>
       {{ errors | json }}
     </div> -->
-    <div class="form-group">
-      <label for="memberName">姓名</label>
-      <input
-        type="text"
-        class="form-control"
-        id="memberName"
-        placeholder="name"
-        formControlName="name"
-      />
-      <div class="text-danger" *ngIf="group.controls.name.errors?.hasError">
+    <div class="field">
+      <label class="label" for="memberName">姓名</label>
+      <div class="control">
+        <input type="text" id="memberName" placeholder="name" formControlName="name" />
+      </div>
+      <div class="has-text-danger" *ngIf="group.controls.name.errors?.hasError">
         {{ group.controls.name.errors?.msg }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="memberEmail">Email</label>
-      <input
-        type="text"
-        inputmode="email"
-        class="form-control"
-        id="memberEmail"
-        placeholder="Email"
-        formControlName="email"
-      />
-      <div class="text-danger" *ngIf="group.controls.email.errors?.hasError">
+    <div class="field">
+      <label class="label" for="memberEmail">Email</label>
+      <div class="control">
+        <input
+          type="text"
+          inputmode="email"
+          id="memberEmail"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <div class="has-text-danger" *ngIf="group.controls.email.errors?.hasError">
         {{ group.controls.email.errors?.msg }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="mobile">手機</label>
+    <div class="field">
+      <label class="label" for="mobile">手機</label>
       <input
         type="text"
         inputmode="numeric"
-        class="form-control"
         id="mobile"
         placeholder="Mobile"
         formControlName="mobile"
         maxlength="10"
       />
-      <div class="text-danger" *ngIf="group.controls.mobile.errors?.hasError">
+      <div class="has-text-danger" *ngIf="group.controls.mobile.errors?.hasError">
         {{ group.controls.mobile.errors?.msg }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="birthday">生日</label>
+    <div class="field">
+      <label class="label" for="birthday">生日</label>
       <div class="row">
-        <input
-          type="text"
-          id="birthday"
-          formControlName="birthday"
-          maxlength="10"
-          class="form-control"
-        />
+        <input type="text" id="birthday" formControlName="birthday" maxlength="10" />
       </div>
-      <div class="text-danger" *ngIf="group.controls.birthday.errors?.hasError">
+      <div class="has-text-danger" *ngIf="group.controls.birthday.errors?.hasError">
         {{ group.controls.birthday.errors?.msg }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="account">帳號</label>
-      <input
-        type="text"
-        name="account"
-        id="account"
-        class="form-control"
-        placeholder="Account"
-        formControlName="account"
-      />
-      <div class="text-danger" *ngIf="group.controls.account.errors?.hasError">
+    <div class="field">
+      <label class="label" for="account">帳號</label>
+      <div class="control">
+        <input
+          type="text"
+          name="account"
+          id="account"
+          placeholder="Account"
+          formControlName="account"
+        />
+      </div>
+      <div class="has-text-danger" *ngIf="group.controls.account.errors?.hasError">
         {{ group.controls.account.errors?.msg }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="password">密碼</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        formControlName="password"
-      />
-      <div class="text-danger" *ngIf="group.controls.password.errors?.hasError">
+    <div class="field">
+      <label class="label" for="password">密碼</label>
+      <div class="control">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div class="has-text-danger" *ngIf="group.controls.password.errors?.hasError">
         {{ group.controls.password.errors?.msg }}
       </div>
     </div>
-    <button class="btn btn-primary" [disabled]="!group.valid">Save</button>
+    <button class="button is-primary" [disabled]="!group.valid">Save</button>
   </form>
 </div>
