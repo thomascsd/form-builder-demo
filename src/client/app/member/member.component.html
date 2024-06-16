@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="group" (ngSubmit)="onSubmit()" #form="ngForm">
+  <form class="box" [formGroup]="group" (ngSubmit)="onSubmit()" #form="ngForm">
     <!-- <div>
       {{ errors | json }}
     </div> -->
@@ -20,8 +20,7 @@
           inputmode="email"
           id="memberEmail"
           placeholder="Email"
-          formControlName="email"
-        />
+          formControlName="email" />
       </div>
       <div class="has-text-danger" *ngIf="group.controls.email.errors?.hasError">
         {{ group.controls.email.errors?.msg }}
@@ -35,8 +34,7 @@
         id="mobile"
         placeholder="Mobile"
         formControlName="mobile"
-        maxlength="10"
-      />
+        maxlength="10" />
       <div class="has-text-danger" *ngIf="group.controls.mobile.errors?.hasError">
         {{ group.controls.mobile.errors?.msg }}
       </div>
@@ -58,8 +56,7 @@
           name="account"
           id="account"
           placeholder="Account"
-          formControlName="account"
-        />
+          formControlName="account" />
       </div>
       <div class="has-text-danger" *ngIf="group.controls.account.errors?.hasError">
         {{ group.controls.account.errors?.msg }}
@@ -73,8 +70,7 @@
           name="password"
           id="password"
           placeholder="Password"
-          formControlName="password"
-        />
+          formControlName="password" />
       </div>
       <div class="has-text-danger" *ngIf="group.controls.password.errors?.hasError">
         {{ group.controls.password.errors?.msg }}

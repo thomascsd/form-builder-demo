@@ -32,9 +32,9 @@
     "@types/jasminewd2": "~2.0.10",
     "@types/node": "^16.11.4",
     "bcrypt": "^5.0.1",
-    "class-transformer": "^0.4.0",
-    "class-validator": "^0.13.1",
-    "class-validator-multi-lang": "^0.130.100",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "class-validator-multi-lang": "^0.130.201",
     "codelyzer": "^6.0.2",
     "core-js": "^3.37.1",
     "jasmine-core": "~3.99.1",
@@ -56,8 +56,9 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.3",
-    "@datorama/akita-ngdevtools": "^6.0.1",
+    "@datorama/akita-ngdevtools": "^7.0.0",
     "@types/bcrypt": "^5.0.0",
-    "path-browserify": "^1.0.1"
+    "path-browserify": "^1.0.1",
+    "prettier": "3.3.2"
   }
 }

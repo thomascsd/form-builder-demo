@@ -1,34 +1,24 @@
 <div class="container">
   <table class="table table-bordered">
+    <thead>
+      @for (column of displayedColumns; track $index) {
+        <tr>
+          {{
+            column
+          }}
+        </tr>
+      }
+    </thead>
 
-
-
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="name">
-      <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Name</th>
-      <td cdk-cell *cdkCellDef="let row">{{ row.name }}</td>
-    </ng-container>
-
-    <!-- Email Column -->
-    <ng-container cdkColumnDef="email">
-      <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Email</th>
-      <td cdk-cell *cdkCellDef="let row">{{ row.email }}</td>
-    </ng-container>
-
-    <!-- Mobil Column -->
-    <ng-container cdkColumnDef="mobile">
-      <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Mobile</th>
-      <td cdk-cell *cdkCellDef="let row">{{ row.mobile }}</td>
-    </ng-container>
-
-    <!-- Email Column -->
-    <ng-container cdkColumnDef="birthday">
-      <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Birthday</th>
-      <td cdk-cell *cdkCellDef="let row">{{ row.birthday }}</td>
-    </ng-container>
-
-    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+    <tbody>
+      @for (member of members; track $index) {
+        @for (column of displayedColumns; track $index) {
+          <td>
+            {{ members[$index][column] }}
+          </td>
+        }
+      }
+    </tbody>
   </table>
 
   <!-- <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator> -->
