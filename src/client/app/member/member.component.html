@@ -4,21 +4,27 @@
       {{ errors | json }}
     </div> -->
     <div class="field">
-      <label class="label" for="memberName">姓名</label>
+      <label class="label">姓名</label>
       <div class="control">
-        <input type="text" id="memberName" placeholder="name" formControlName="name" />
+        <input
+          type="text"
+          name="memberName"
+          class="input"
+          placeholder="name"
+          formControlName="name" />
       </div>
       <div class="has-text-danger" *ngIf="group.controls.name.errors?.hasError">
         {{ group.controls.name.errors?.msg }}
       </div>
     </div>
     <div class="field">
-      <label class="label" for="memberEmail">Email</label>
+      <label class="label">Email</label>
       <div class="control">
         <input
           type="text"
           inputmode="email"
-          id="memberEmail"
+          name="memberEmail"
+          class="input"
           placeholder="Email"
           formControlName="email" />
       </div>
@@ -27,34 +33,42 @@
       </div>
     </div>
     <div class="field">
-      <label class="label" for="mobile">手機</label>
-      <input
-        type="text"
-        inputmode="numeric"
-        id="mobile"
-        placeholder="Mobile"
-        formControlName="mobile"
-        maxlength="10" />
+      <label class="label">手機</label>
+      <div class="control">
+        <input
+          type="text"
+          inputmode="numeric"
+          name="mobile"
+          class="input"
+          placeholder="Mobile"
+          formControlName="mobile"
+          maxlength="10" />
+      </div>
       <div class="has-text-danger" *ngIf="group.controls.mobile.errors?.hasError">
         {{ group.controls.mobile.errors?.msg }}
       </div>
     </div>
     <div class="field">
-      <label class="label" for="birthday">生日</label>
-      <div class="row">
-        <input type="text" id="birthday" formControlName="birthday" maxlength="10" />
+      <label class="label">生日</label>
+      <div class="control">
+        <input
+          type="text"
+          name="birthday"
+          class="input"
+          formControlName="birthday"
+          maxlength="10" />
       </div>
       <div class="has-text-danger" *ngIf="group.controls.birthday.errors?.hasError">
         {{ group.controls.birthday.errors?.msg }}
       </div>
     </div>
     <div class="field">
-      <label class="label" for="account">帳號</label>
+      <label class="label">帳號</label>
       <div class="control">
         <input
           type="text"
           name="account"
-          id="account"
+          class="input"
           placeholder="Account"
           formControlName="account" />
       </div>
@@ -63,12 +77,12 @@
       </div>
     </div>
     <div class="field">
-      <label class="label" for="password">密碼</label>
+      <label class="label">密碼</label>
       <div class="control">
         <input
           type="password"
           name="password"
-          id="password"
+          class="input"
           placeholder="Password"
           formControlName="password" />
       </div>

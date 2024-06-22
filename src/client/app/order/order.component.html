@@ -1,15 +1,15 @@
 <div class="container">
-  <form [formGroup]="group">
+  <form class="box" [formGroup]="group">
     <div class="field">
       <label class="label">聯絡人</label>
       <div class="control">
         <input
           type="text"
           name="contactName"
+          class="input"
           id="contactName"
           formControlName="contactName"
-          placeholder="聯絡人"
-        />
+          placeholder="聯絡人" />
       </div>
     </div>
 
@@ -24,8 +24,7 @@
             labelForId="county"
             formControlName="county"
             [searchable]="false"
-            (change)="onCountyChange($event)"
-          ></ng-select>
+            (change)="onCountyChange($event)"></ng-select>
         </div>
 
         <div class="column">
@@ -37,27 +36,26 @@
             [searchable]="false"
             placeholder="鄉鎮"
             labelForId="distinct"
-            formControlName="distinct"
-          ></ng-select>
+            formControlName="distinct"></ng-select>
         </div>
 
         <div class="column">
-          <input
-            type="text"
-            name="address"
-            id="address"
-            class="form-control"
-            formControlName="address"
-            placeholder="地址"
-          />
+          <div class="control">
+            <input
+              type="text"
+              name="address"
+              class="input"
+              formControlName="address"
+              placeholder="地址" />
+          </div>
         </div>
       </div>
     </div>
     <div class="field">
-      <label class="label" for="sameContact">同聯絡人</label>
-      <div class="control">
-        <input type="checkbox" name="sameContact" id="contactName" class="form-control" />
-      </div>
+      <label class="checkbox">
+        <input type="checkbox" name="sameContact" />
+        同聯絡人
+      </label>
     </div>
     <div class="field">
       <label class="label" for="contactName">收貨人</label>
@@ -65,10 +63,9 @@
         <input
           type="text"
           name="contactName"
-          id="contactName"
+          class="input"
           class="form-control"
-          placeholder="收貨人"
-        />
+          placeholder="收貨人" />
       </div>
     </div>
     <div class="field">
@@ -81,8 +78,7 @@
           labelForId="receiveCounty"
           formControlName="receiveCounty"
           [searchable]="false"
-          (change)="onCountyChange($event)"
-        ></ng-select>
+          (change)="onCountyChange($event)"></ng-select>
         <ng-select
           [items]="distinct$ | async"
           bindValue="id"
@@ -90,17 +86,16 @@
           [searchable]="false"
           placeholder="鄉鎮"
           labelForId="receiveDistinct"
-          formControlName="receiveDistinct"
-        ></ng-select>
+          formControlName="receiveDistinct"></ng-select>
         <div class="column">
-          <input
-            type="text"
-            name="receiveAdress"
-            id="receiveAdress"
-            class="form-control"
-            formControlName="receiveAdress"
-            placeholder="地址"
-          />
+          <div class="control">
+            <input
+              type="text"
+              name="receiveAdress"
+              class="input"
+              formControlName="receiveAdress"
+              placeholder="地址" />
+          </div>
         </div>
       </div>
     </div>
