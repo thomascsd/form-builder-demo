@@ -7,9 +7,10 @@ import { utilValidator } from '../utils/validator';
 import { ToForm } from '../utils/toForm';
 
 @Component({
-  selector: 'app-member',
-  templateUrl: './member.component.html',
-  styleUrls: ['./member.component.scss'],
+    selector: 'app-member',
+    templateUrl: './member.component.html',
+    styleUrls: ['./member.component.scss'],
+    standalone: false
 })
 export class MemberComponent implements OnInit {
   group: FormGroup<ToForm<Member>>;

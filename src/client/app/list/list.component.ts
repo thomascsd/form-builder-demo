@@ -3,9 +3,10 @@ import { MemberService } from '../core/state/member.service';
 import { Member } from '../../../shared/models/member';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class ListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'mobile', 'birthday'];
