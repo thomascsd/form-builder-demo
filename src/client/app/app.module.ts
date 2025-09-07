@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -22,5 +21,5 @@ import { OrderComponent } from './order/order.component';
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
-        environment.production ? [] : AkitaNgDevtools], providers: [provideHttpClient(withInterceptorsFromDi())] })
+    ], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

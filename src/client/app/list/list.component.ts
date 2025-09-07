@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MemberQuery } from '../core/state/member.query';
 import { MemberService } from '../core/state/member.service';
 import { Member } from '../../../shared/models/member';
 
@@ -12,7 +11,7 @@ export class ListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'mobile', 'birthday'];
   members: Member[] = [];
 
-  constructor(private memberQuery: MemberQuery, private memberService: MemberService) {}
+  constructor(private memberService: MemberService) {}
 
   ngOnInit() {
     this.memberService.get().subscribe((members: Member[]) => {
