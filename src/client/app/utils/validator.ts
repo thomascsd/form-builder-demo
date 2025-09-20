@@ -1,11 +1,14 @@
 import { ValidationErrors, ValidatorFn } from '@angular/forms';
 import { validateSync } from 'class-validator';
 
-export function utilValidator<T extends {}>(model: T, prop: string): ValidatorFn {
+export function utilValidator<T extends Record<string, unknown>>(
+  model: T,
+  prop: string,
+): ValidatorFn {
   return (control): ValidationErrors | null => {
     let invalid = false;
 
-    model[prop] = control.value;
+    (model as any)[prop] = control.value;
 
     const errors = validateSync(model, {
       skipMissingProperties: true,
@@ -15,7 +18,9 @@ export function utilValidator<T extends {}>(model: T, prop: string): ValidatorFn
       const propError = errors.filter((e) => e.property == prop);
 
       if (propError.length > 0) {
-        const msg = propError.map(({ constraints }) => Object.values(constraints).join(', '));
+        const msg = propError.map(({ constraints }) =>
+          constraints ? Object.values(constraints).join(', ') : '',
+        );
         invalid = true;
 
         return { hasError: invalid && (control.dirty || control.touched), msg };

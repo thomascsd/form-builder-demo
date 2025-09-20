@@ -34,11 +34,11 @@ export class Member extends BaseModel {
     },
     {
       message: '手機需填寫',
-    }
+    },
   )
   mobile = '';
 
-  birthday: string;
+  birthday: string = '';
 
   @IsNotEmpty(options)
   @MinLength(6, options)

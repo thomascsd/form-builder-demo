@@ -17,7 +17,7 @@
       <div class="columns">
         <div class="column">
           <ng-select
-            [items]="county$ | async"
+            [items]="county.value()"
             bindValue="countyCode"
             bindLabel="countyName"
             placeholder="縣市"
@@ -30,7 +30,7 @@
         <div class="column">
           <ng-select
             class="col-md-3"
-            [items]="distinct$ | async"
+            [items]="distinct.value()"
             bindValue="id"
             bindLabel="distinctName"
             [searchable]="false"
@@ -71,7 +71,7 @@
     <div class="field">
       <div class="row">
         <ng-select
-          [items]="county$ | async"
+          [items]="county.value()"
           bindValue="countyCode"
           bindLabel="countyName"
           placeholder="縣市"
@@ -80,7 +80,7 @@
           [searchable]="false"
           (change)="onCountyChange($event)"></ng-select>
         <ng-select
-          [items]="distinct$ | async"
+          [items]="distinct.value()"
           bindValue="id"
           bindLabel="distinctName"
           [searchable]="false"

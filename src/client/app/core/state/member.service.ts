@@ -1,44 +1,45 @@
-
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Member } from '../../../../shared/models';
 
 @Injectable({ providedIn: 'root' })
 export class MemberService {
-  private membersSubject = new BehaviorSubject<Member[]>([]);
-  members$ = this.membersSubject.asObservable();
+  members: Member[] = [];
 
-  constructor(private client: HttpClient) {}
+  constructor() {}
 
-  get(): Observable<Member[]> {
-    return this.client.get<Member[]>('/.netlify/functions/member/list').pipe(
-      tap((entities) => {
-        this.membersSubject.next(entities);
-      })
-    );
+  get(): HttpResourceRef<Member[]> {
+    // return this.client.get<Member[]>('/.netlify/functions/member/list').pipe(
+    //   tap((entities) => {
+    //     this.membersSubject.next(entities);
+    //   })
+    // );
+
+    const members = httpResource<Member[]>('/.netlify/functions/member/list', { defaultValue: [] });
+
+    return members;
   }
 
   add(member: Member) {
-    const current = this.membersSubject.getValue();
-    this.membersSubject.next([...current, member]);
+    this.members = [...this.members, member];
   }
 
   update(id: string | number, member: Partial<Member>) {
-    const current = this.membersSubject.getValue();
-    this.membersSubject.next(
-      current.map(m => m.id === id ? { ...m, ...member } : m)
-    );
+    this.members = this.members.map((m) => (m.id === id ? { ...m, ...member } : m));
   }
 
   remove(id: string | number) {
-    const current = this.membersSubject.getValue();
-    this.membersSubject.next(current.filter(m => m.id !== id));
+    this.members = this.members.filter((m) => m.id !== id);
   }
 
   saveMember(member: Member) {
     const url = '/.netlify/functions/member/save';
-    return this.client.post(url, member);
+    //return this.client.post(url, member);
+
+    return httpResource<Member>(() => ({
+      url,
+      method: 'POST',
+      body: member,
+    }));
   }
 }

@@ -11,7 +11,7 @@
     </thead>
 
     <tbody>
-      @for (member of members; track $index) {
+      @for (member of members.value(); track $index) {
         @for (column of displayedColumns; track $index) {
           <td>
             {{ members[$index][column] }}

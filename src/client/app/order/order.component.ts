@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { County } from '../../../shared/models/county';
 import { Distinct } from '../../../shared/models/distinct';
 import { CountyService } from './county.service';
+import { HttpResourceRef } from '@angular/common/http';
 
 @Component({
-    selector: 'app-order',
-    templateUrl: './order.component.html',
-    styleUrls: ['./order.component.scss'],
-    standalone: false
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss'],
+  standalone: false,
 })
 export class OrderComponent implements OnInit {
-  county$: Observable<County[]>;
-  distinct$: Observable<Distinct[]>;
+  county!: HttpResourceRef<County[]>;
+  distinct!: HttpResourceRef<Distinct[]>;
   group: UntypedFormGroup;
 
-  constructor(private countyServie: CountyService, private fb: UntypedFormBuilder) {
+  constructor(
+    private countyServie: CountyService,
+    private fb: UntypedFormBuilder,
+  ) {
     this.group = this.fb.group({
       contactName: ['', Validators.required],
       county: ['', Validators.required],
@@ -29,10 +32,10 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.county$ = this.countyServie.getCounties();
+    this.county = this.countyServie.getCounties();
   }
 
   onCountyChange(county: County) {
-    this.distinct$ = this.countyServie.getDistincts(county.countyCode);
+    this.distinct = this.countyServie.getDistincts(county.countyCode);
   }
 }

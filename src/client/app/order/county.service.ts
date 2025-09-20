@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { County } from '../../../shared/models/county';
 import { Distinct } from '../../../shared/models/distinct';
 
 @Injectable({ providedIn: 'root' })
 export class CountyService {
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
-  getCounties(): Observable<County[]> {
-    return this.httpClient.get<County[]>('/.netlify/functions/county');
+  getCounties(): HttpResourceRef<County[]> {
+    return httpResource<County[]>('/.netlify/functions/county', { defaultValue: [] });
   }
 
-  getDistincts(countyCode: string): Observable<Distinct[]> {
+  getDistincts(countyCode: string): HttpResourceRef<Distinct[]> {
     const params = { countyCode: countyCode };
-    return this.httpClient.get<Distinct[]>('/.netlify/functions/distinct', {
-      params: params,
-    });
+
+    return httpResource<Distinct[]>(
+      () => ({
+        url: '/.netlify/functions/distinct',
+        params: params,
+      }),
+      { defaultValue: [] },
+    );
   }
 }

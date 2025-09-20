@@ -1,22 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MemberService } from '../core/state/member.service';
 import { Member } from '../../../shared/models/member';
+import { HttpResourceRef } from '@angular/common/http';
 
 @Component({
-    selector: 'app-list',
-    templateUrl: './list.component.html',
-    styleUrls: ['./list.component.scss'],
-    standalone: false
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
+  standalone: false,
 })
 export class ListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'mobile', 'birthday'];
-  members: Member[] = [];
+  memberService = inject(MemberService);
+  members: HttpResourceRef<Member[]> = this.memberService.get();
 
-  constructor(private memberService: MemberService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.memberService.get().subscribe((members: Member[]) => {
-      this.members = members;
-    });
-  }
+  ngOnInit() {}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, NgForm, FormBuilder, FormControl } from '@angular/forms';
 import { Member } from '../../../shared/models';
 import { BithdayService } from '../core/services/bithday.service';
 import { MemberService } from '../core/state/member.service';
@@ -7,21 +7,21 @@ import { utilValidator } from '../utils/validator';
 import { ToForm } from '../utils/toForm';
 
 @Component({
-    selector: 'app-member',
-    templateUrl: './member.component.html',
-    styleUrls: ['./member.component.scss'],
-    standalone: false
+  selector: 'app-member',
+  templateUrl: './member.component.html',
+  styleUrls: ['./member.component.scss'],
+  standalone: false,
 })
 export class MemberComponent implements OnInit {
-  group: FormGroup<ToForm<Member>>;
-  years: string[];
-  months: string[];
-  days: string[];
+  group!: FormGroup<ToForm<Member>>;
+  years: string[] = [];
+  months: string[] = [];
+  days: string[] = [];
 
   constructor(
     private fb: FormBuilder,
     private birthdayService: BithdayService,
-    private memberService: MemberService
+    private memberService: MemberService,
   ) {}
 
   ngOnInit() {
@@ -41,11 +41,7 @@ export class MemberComponent implements OnInit {
 
   onSubmit() {
     if (this.group.valid) {
-      this.memberService.saveMember(this.group.value as Member).subscribe(() => {
-        // this.snackBar.open('儲存成功', '', {
-        //   duration: 3000,
-        // });
-      });
+      this.memberService.saveMember(this.group.value as Member);
     }
   }
 
