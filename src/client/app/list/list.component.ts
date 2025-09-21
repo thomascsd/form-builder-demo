@@ -14,7 +14,9 @@ export class ListComponent implements OnInit {
   memberService = inject(MemberService);
   members: HttpResourceRef<Member[]> = this.memberService.get();
 
-  constructor() {}
+  constructor() {
+    this.members = this.memberService.get();
+  }
 
   ngOnInit() {}
 }

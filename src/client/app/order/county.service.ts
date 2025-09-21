@@ -8,7 +8,7 @@ export class CountyService {
   constructor() {}
 
   getCounties(): HttpResourceRef<County[]> {
-    return httpResource<County[]>('/.netlify/functions/county', { defaultValue: [] });
+    return httpResource<County[]>(() => '/.netlify/functions/county', { defaultValue: [] });
   }
 
   getDistincts(countyCode: string): HttpResourceRef<Distinct[]> {

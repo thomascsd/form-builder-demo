@@ -29,11 +29,11 @@ export class OrderComponent implements OnInit {
       receiveDistinct: ['', Validators.required],
       receiveAdress: ['', Validators.required],
     });
-  }
 
-  ngOnInit() {
     this.county = this.countyServie.getCounties();
   }
+
+  ngOnInit() {}
 
   onCountyChange(county: County) {
     this.distinct = this.countyServie.getDistincts(county.countyCode);

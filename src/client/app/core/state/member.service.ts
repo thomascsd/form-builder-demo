@@ -15,7 +15,9 @@ export class MemberService {
     //   })
     // );
 
-    const members = httpResource<Member[]>('/.netlify/functions/member/list', { defaultValue: [] });
+    const members = httpResource<Member[]>(() => '/.netlify/functions/member/list', {
+      defaultValue: [],
+    });
 
     return members;
   }
