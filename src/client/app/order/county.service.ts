@@ -8,16 +8,31 @@ export class CountyService {
   constructor() {}
 
   getCounties(): HttpResourceRef<County[]> {
-    return httpResource<County[]>(() => '/.netlify/functions/county', { defaultValue: [] });
+    const params = {
+      path: '/county/counties',
+    };
+
+    return httpResource<County[]>(
+      () => ({
+        url: '/.netlify/functions/proxy',
+        params,
+      }),
+      {
+        defaultValue: [],
+      },
+    );
   }
 
   getDistincts(countyCode: string): HttpResourceRef<Distinct[]> {
-    const params = { countyCode: countyCode };
+    const params = {
+      path: 'county/distincts',
+      countyCode: countyCode,
+    };
 
     return httpResource<Distinct[]>(
       () => ({
-        url: '/.netlify/functions/distinct',
-        params: params,
+        url: '/.netlify/functions/proxy',
+        params,
       }),
       { defaultValue: [] },
     );
