@@ -1,10 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
     "outDir": "../dist/",
     "baseUrl": "",
-    "target": "es2017"
+    "target": "esnext"
   },
   "baseUrl": "../functions",
   "include": ["../functions/**/*"]

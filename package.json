@@ -2,6 +2,7 @@
   "name": "form-builder-demo",
   "version": "0.3.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "ng serve",
     "dev": "netlify dev",
@@ -36,6 +37,7 @@
     "class-validator-multi-lang": "^0.130.201",
     "codelyzer": "^6.0.2",
     "core-js": "^3.37.1",
+    "got": "^13.0.0",
     "jasmine-core": "~3.99.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.4.3",

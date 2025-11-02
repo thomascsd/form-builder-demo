@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Member } from '../../../../shared/models';
 
+const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev';
+
 @Injectable({ providedIn: 'root' })
 export class MemberService {
   members: Member[] = [];
@@ -15,7 +17,7 @@ export class MemberService {
     //   })
     // );
 
-    const members = httpResource<Member[]>(() => '/.netlify/functions/member/list', {
+    const members = httpResource<Member[]>(() => `${API_BASE_URL}/api/contact/list`, {
       defaultValue: [],
     });
 
@@ -35,7 +37,7 @@ export class MemberService {
   }
 
   saveMember(member: Member) {
-    const url = '/.netlify/functions/member/save';
+    const url = `${API_BASE_URL}/api/contact/save`;
     //return this.client.post(url, member);
 
     return httpResource<Member>(() => ({
