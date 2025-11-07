@@ -37,6 +37,7 @@
     "class-validator-multi-lang": "^0.130.201",
     "codelyzer": "^6.0.2",
     "core-js": "^3.37.1",
+    "dotenv": "^17.2.3",
     "got": "^13.0.0",
     "jasmine-core": "~3.99.1",
     "jasmine-spec-reporter": "~7.0.0",

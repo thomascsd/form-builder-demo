@@ -2,9 +2,14 @@
 // 讀取環境變數: url, api_key
 import { Handler } from '@netlify/functions';
 import got, { Method } from 'got';
+import dotenv from 'dotenv';
+
+dotenv.config({
+  path: './functions/.env',
+});
 
 const handler: Handler = async (event) => {
-  const apiUrl = process.env.URL;
+  const apiUrl = process.env.API_URL;
   const apiKey = process.env.API_KEY;
 
   if (!apiUrl || !apiKey) {
@@ -24,6 +29,8 @@ const handler: Handler = async (event) => {
   const path = event.queryStringParameters?.path || '';
 
   try {
+    console.log('🚀 ~ handler ~ apiUrl + path:', apiUrl + path);
+
     const response = await got(apiUrl + path, {
       method: method,
       headers,
