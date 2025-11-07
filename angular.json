@@ -16,17 +16,12 @@
             },
             "index": "src/client/index.html",
             "tsConfig": "src/client/tsconfig.app.json",
-            "polyfills": [
-              "src/client/polyfills.ts"
-            ],
+            "polyfills": ["src/client/polyfills.ts"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/client", "src/client/themes"]
             },
             "assets": ["src/client/assets", "src/client/favicon.ico"],
-            "styles": [
-
-              "src/client/sass/styles.scss"
-            ],
+            "styles": ["src/client/sass/styles.scss"],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,
@@ -82,25 +77,8 @@
             "polyfills": "src/client/polyfills.ts",
             "tsConfig": "src/client/tsconfig.spec.json",
             "scripts": [],
-            "styles": [
-
-              "src/client/sass/styles.scss"
-            ],
+            "styles": ["src/client/sass/styles.scss"],
             "assets": ["src/client/assets", "src/client/favicon.ico"]
-          }
-        }
-      }
-    },
-    "form-builder-demo-e2e": {
-      "root": "e2e",
-      "sourceRoot": "e2e",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "form-builder-demo:serve"
           }
         }
       }
@@ -134,11 +112,5 @@
     "@schematics/angular:resolver": {
       "typeSeparator": "."
     }
-  },
-  "cli": {
-    "analytics": false,
-    "schematicCollections": [
-      "@datorama/akita"
-    ]
   }
 }

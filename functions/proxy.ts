@@ -4,8 +4,8 @@ import { Handler } from '@netlify/functions';
 import got, { Method } from 'got';
 
 const handler: Handler = async (event) => {
-  const apiUrl = process.env.url;
-  const apiKey = process.env.api_key;
+  const apiUrl = process.env.URL;
+  const apiKey = process.env.API_KEY;
 
   if (!apiUrl || !apiKey) {
     return {

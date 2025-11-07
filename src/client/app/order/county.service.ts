@@ -25,8 +25,7 @@ export class CountyService {
 
   getDistincts(countyCode: string): HttpResourceRef<Distinct[]> {
     const params = {
-      path: 'county/distincts',
-      countyCode: countyCode,
+      path: `/county/distincts/${countyCode}`,
     };
 
     return httpResource<Distinct[]>(
