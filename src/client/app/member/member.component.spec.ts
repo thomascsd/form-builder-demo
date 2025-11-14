@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { describe, beforeEach, it, expect } from 'vitest';
 import { MemberComponent } from './member.component';
 
 describe('MemberComponent', () => {
@@ -8,9 +8,8 @@ describe('MemberComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MemberComponent ]
-    })
-    .compileComponents();
+      declarations: [MemberComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -80,7 +80,7 @@
           [searchable]="false"
           (change)="onCountyChange($event)"></ng-select>
         <ng-select
-          [items]="distinct.value()"
+          [items]="distinct?.value()"
           bindValue="id"
           bindLabel="distinctName"
           [searchable]="false"

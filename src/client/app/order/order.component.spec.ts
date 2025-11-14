@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 import { OrderComponent } from './order.component';
 
@@ -8,9 +9,8 @@ describe('OrderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderComponent ]
-    })
-    .compileComponents();
+      declarations: [OrderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
