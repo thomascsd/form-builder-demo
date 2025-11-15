@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { County } from '../../../shared/models/county';
 import { Distinct } from '../../../shared/models/distinct';
@@ -11,7 +11,7 @@ import { HttpResourceRef } from '@angular/common/http';
   styleUrls: ['./order.component.scss'],
   standalone: false,
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
   county!: HttpResourceRef<County[]>;
   distinct!: HttpResourceRef<Distinct[]>;
   group: UntypedFormGroup;
@@ -32,8 +32,6 @@ export class OrderComponent implements OnInit {
 
     this.county = this.countyServie.getCounties();
   }
-
-  ngOnInit() {}
 
   onCountyChange(county: County) {
     this.distinct = this.countyServie.getDistincts(county.countyCode);

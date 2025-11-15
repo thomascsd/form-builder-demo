@@ -43,10 +43,14 @@ const handler: Handler = async (event) => {
       statusCode: response.statusCode,
       body: JSON.stringify(response.body),
     };
-  } catch (err: any) {
+  } catch (err: unknown) {
+    let message = 'Proxy error';
+    if (err instanceof Error) {
+      message = err.message || 'Proxy error';
+    }
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message || 'Proxy error' }),
+      body: JSON.stringify({ error: message }),
     };
   }
 };

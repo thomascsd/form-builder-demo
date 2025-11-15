@@ -1,5 +1,5 @@
 import { Member } from '../../../../shared/models';
 
-export function createMember(params: Partial<Member>) {
+export function createMember() {
   return {} as Member;
 }

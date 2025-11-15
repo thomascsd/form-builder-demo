@@ -16,12 +16,22 @@
             },
             "index": "src/client/index.html",
             "tsConfig": "src/client/tsconfig.app.json",
-            "polyfills": ["src/client/polyfills.ts"],
+            "polyfills": [
+              "src/client/polyfills.ts"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/client", "src/client/themes"]
+              "includePaths": [
+                "src/client",
+                "src/client/themes"
+              ]
             },
-            "assets": ["src/client/assets", "src/client/favicon.ico"],
-            "styles": ["src/client/sass/styles.scss"],
+            "assets": [
+              "src/client/assets",
+              "src/client/favicon.ico"
+            ],
+            "styles": [
+              "src/client/sass/styles.scss"
+            ],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,
@@ -77,8 +87,22 @@
             "polyfills": "src/client/polyfills.ts",
             "tsConfig": "src/client/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["src/client/sass/styles.scss"],
-            "assets": ["src/client/assets", "src/client/favicon.ico"]
+            "styles": [
+              "src/client/sass/styles.scss"
+            ],
+            "assets": [
+              "src/client/assets",
+              "src/client/favicon.ico"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/client/**/*.ts",
+              "src/client/**/*.html"
+            ]
           }
         }
       }
@@ -112,5 +136,10 @@
     "@schematics/angular:resolver": {
       "typeSeparator": "."
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

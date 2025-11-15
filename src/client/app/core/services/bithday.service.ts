@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BithdayService {
-  constructor() {}
-
   getYears(): string[] {
     const years: string[] = [];
     const now = new Date();

@@ -1,21 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    standalone: false
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  standalone: false,
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() buttonText = 'Write Diary';
   @Input() buttonVisible = false;
   @Input() signInButtonVisible = true;
-  @Output() clicked = new EventEmitter<any>();
-  @Output() logedIn = new EventEmitter<any>();
-
-  constructor() {}
-
-  ngOnInit() {}
+  @Output() clicked = new EventEmitter<void>();
+  @Output() logedIn = new EventEmitter<void>();
 
   onclick(evt: Event) {
     evt.preventDefault();

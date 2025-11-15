@@ -3,15 +3,16 @@
     <!-- <div>
     {{ errors | json }}
   </div> -->
-  <div class="field">
-    <label class="label">姓名</label>
-    <div class="control">
-      <input
-        type="text"
-        name="memberName"
-        class="input"
-        placeholder="name"
-        formControlName="name" />
+    <div class="field">
+      <label class="label" for="memberName">姓名</label>
+      <div class="control">
+        <input
+          type="text"
+          id="memberName"
+          name="memberName"
+          class="input"
+          placeholder="name"
+          formControlName="name" />
       </div>
       @if (group.controls.name.errors?.hasError) {
         <div class="has-text-danger">
@@ -20,88 +21,93 @@
       }
     </div>
     <div class="field">
-      <label class="label">Email</label>
+      <label class="label" for="memberEmail">Email</label>
       <div class="control">
         <input
           type="text"
           inputmode="email"
+          id="memberEmail"
           name="memberEmail"
           class="input"
           placeholder="Email"
           formControlName="email" />
-        </div>
-        @if (group.controls.email.errors?.hasError) {
-          <div class="has-text-danger">
-            {{ group.controls.email.errors?.msg }}
-          </div>
-        }
       </div>
-      <div class="field">
-        <label class="label">手機</label>
-        <div class="control">
-          <input
-            type="text"
-            inputmode="numeric"
-            name="mobile"
-            class="input"
-            placeholder="Mobile"
-            formControlName="mobile"
-            maxlength="10" />
-          </div>
-          @if (group.controls.mobile.errors?.hasError) {
-            <div class="has-text-danger">
-              {{ group.controls.mobile.errors?.msg }}
-            </div>
-          }
+      @if (group.controls.email.errors?.hasError) {
+        <div class="has-text-danger">
+          {{ group.controls.email.errors?.msg }}
         </div>
-        <div class="field">
-          <label class="label">生日</label>
-          <div class="control">
-            <input
-              type="text"
-              name="birthday"
-              class="input"
-              formControlName="birthday"
-              maxlength="10" />
-            </div>
-            @if (group.controls.birthday.errors?.hasError) {
-              <div class="has-text-danger">
-                {{ group.controls.birthday.errors?.msg }}
-              </div>
-            }
-          </div>
-          <div class="field">
-            <label class="label">帳號</label>
-            <div class="control">
-              <input
-                type="text"
-                name="account"
-                class="input"
-                placeholder="Account"
-                formControlName="account" />
-              </div>
-              @if (group.controls.account.errors?.hasError) {
-                <div class="has-text-danger">
-                  {{ group.controls.account.errors?.msg }}
-                </div>
-              }
-            </div>
-            <div class="field">
-              <label class="label">密碼</label>
-              <div class="control">
-                <input
-                  type="password"
-                  name="password"
-                  class="input"
-                  placeholder="Password"
-                  formControlName="password" />
-                </div>
-                @if (group.controls.password.errors?.hasError) {
-                  <div class="has-text-danger">
-                    {{ group.controls.password.errors?.msg }}
-                  </div>
-                }
-              </div>
-              <button class="button is-primary" [disabled]="!group.valid">Save</button>
-            </form>
-          </div>
+      }
+    </div>
+    <div class="field">
+      <label class="label" for="mobile">手機</label>
+      <div class="control">
+        <input
+          type="text"
+          inputmode="numeric"
+          id="mobile"
+          name="mobile"
+          class="input"
+          placeholder="Mobile"
+          formControlName="mobile"
+          maxlength="10" />
+      </div>
+      @if (group.controls.mobile.errors?.hasError) {
+        <div class="has-text-danger">
+          {{ group.controls.mobile.errors?.msg }}
+        </div>
+      }
+    </div>
+    <div class="field">
+      <label class="label" for="birthday">生日</label>
+      <div class="control">
+        <input
+          type="text"
+          id="birthday"
+          name="birthday"
+          class="input"
+          formControlName="birthday"
+          maxlength="10" />
+      </div>
+      @if (group.controls.birthday.errors?.hasError) {
+        <div class="has-text-danger">
+          {{ group.controls.birthday.errors?.msg }}
+        </div>
+      }
+    </div>
+    <div class="field">
+      <label class="label" for="account">帳號</label>
+      <div class="control">
+        <input
+          type="text"
+          id="account"
+          name="account"
+          class="input"
+          placeholder="Account"
+          formControlName="account" />
+      </div>
+      @if (group.controls.account.errors?.hasError) {
+        <div class="has-text-danger">
+          {{ group.controls.account.errors?.msg }}
+        </div>
+      }
+    </div>
+    <div class="field">
+      <label class="label" for="password">密碼</label>
+      <div class="control">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="input"
+          placeholder="Password"
+          formControlName="password" />
+      </div>
+      @if (group.controls.password.errors?.hasError) {
+        <div class="has-text-danger">
+          {{ group.controls.password.errors?.msg }}
+        </div>
+      }
+    </div>
+    <button class="button is-primary" [disabled]="!group.valid">Save</button>
+  </form>
+</div>

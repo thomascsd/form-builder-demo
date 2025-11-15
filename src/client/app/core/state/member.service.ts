@@ -8,8 +8,6 @@ const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev';
 export class MemberService {
   members: Member[] = [];
 
-  constructor() {}
-
   get(): HttpResourceRef<Member[]> {
     // return this.client.get<Member[]>('/.netlify/functions/member/list').pipe(
     //   tap((entities) => {

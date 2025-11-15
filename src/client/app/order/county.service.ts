@@ -5,8 +5,6 @@ import { Distinct } from '../../../shared/models/distinct';
 
 @Injectable({ providedIn: 'root' })
 export class CountyService {
-  constructor() {}
-
   getCounties(): HttpResourceRef<County[]> {
     const params = {
       path: '/county/counties',

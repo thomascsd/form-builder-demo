@@ -10,16 +10,20 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MemberComponent } from './member/member.component';
 import { ListComponent } from './list/list.component';
-import { environment } from '../environments/environment';
 import { OrderComponent } from './order/order.component';
 
-@NgModule({ declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent, OrderComponent],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        SharedModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgSelectModule,
-    ], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [AppComponent, LayoutComponent, MemberComponent, ListComponent, OrderComponent],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
+})
 export class AppModule {}
