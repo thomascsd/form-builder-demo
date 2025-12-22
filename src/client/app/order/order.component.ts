@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { County } from '../../../shared/models/county';
 import { Distinct } from '../../../shared/models/distinct';
-import { CountyService } from './county.service';
+import { CountyService } from '../core/services/county.service';
 import { HttpResourceRef } from '@angular/common/http';
 
 @Component({

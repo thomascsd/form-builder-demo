@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MemberService } from '../core/state/member.service';
+import { MemberService } from '../core/services/member.service';
 import { Member } from '../../../shared/models/member';
 import { HttpResourceRef } from '@angular/common/http';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
-import { County } from '../../../shared/models/county';
-import { Distinct } from '../../../shared/models/distinct';
+import { County } from '../../../../shared/models/county';
+import { Distinct } from '../../../../shared/models/distinct';
 
 @Injectable({ providedIn: 'root' })
 export class CountyService {
