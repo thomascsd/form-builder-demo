@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Member } from '../../../../shared/models';
+import path from 'path';
 
-const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev';
+// const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev';
+const API_BASE_URL = '/.netlify/functions/proxy';
 
 @Injectable({ providedIn: 'root' })
 export class MemberService {
@@ -15,9 +17,19 @@ export class MemberService {
     //   })
     // );
 
-    const members = httpResource<Member[]>(() => `${API_BASE_URL}/api/contact/list`, {
-      defaultValue: [],
-    });
+    const params = {
+      path: '/contact/list',
+    };
+
+    const members = httpResource<Member[]>(
+      () => ({
+        url: API_BASE_URL,
+        params,
+      }),
+      {
+        defaultValue: [],
+      },
+    );
 
     return members;
   }
@@ -35,11 +47,14 @@ export class MemberService {
   }
 
   saveMember(member: Member) {
-    const url = `${API_BASE_URL}/api/contact/save`;
+    const params = {
+      path: '/contact/save',
+    };
     //return this.client.post(url, member);
 
     return httpResource<Member>(() => ({
-      url,
+      url: API_BASE_URL,
+      params,
       method: 'POST',
       body: member,
     }));

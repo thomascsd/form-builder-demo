@@ -3,6 +3,8 @@ import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { County } from '../../../../shared/models/county';
 import { Distinct } from '../../../../shared/models/distinct';
 
+const API_BASE_URL = '/.netlify/functions/proxy';
+
 @Injectable({ providedIn: 'root' })
 export class CountyService {
   getCounties(): HttpResourceRef<County[]> {
@@ -12,7 +14,7 @@ export class CountyService {
 
     return httpResource<County[]>(
       () => ({
-        url: '/.netlify/functions/proxy',
+        url: API_BASE_URL,
         params,
       }),
       {
@@ -28,7 +30,7 @@ export class CountyService {
 
     return httpResource<Distinct[]>(
       () => ({
-        url: '/.netlify/functions/proxy',
+        url: API_BASE_URL,
         params,
       }),
       { defaultValue: [] },
