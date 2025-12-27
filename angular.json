@@ -5,7 +5,7 @@
   "projects": {
     "form-builder-demo": {
       "root": "",
-      "sourceRoot": "src/client",
+      "sourceRoot": "src",
       "projectType": "application",
       "architect": {
         "build": {
@@ -14,30 +14,20 @@
             "outputPath": {
               "base": "dist"
             },
-            "index": "src/client/index.html",
-            "tsConfig": "src/client/tsconfig.app.json",
-            "polyfills": [
-              "src/client/polyfills.ts"
-            ],
+            "index": "src/index.html",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": ["src/polyfills.ts"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/client",
-                "src/client/themes"
-              ]
+              "includePaths": ["src", "src/themes"]
             },
-            "assets": [
-              "src/client/assets",
-              "src/client/favicon.ico"
-            ],
-            "styles": [
-              "src/client/sass/styles.scss"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
+            "styles": ["src/sass/styles.scss"],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "browser": "src/client/main.ts"
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -54,8 +44,8 @@
               "extractLicenses": true,
               "fileReplacements": [
                 {
-                  "replace": "src/client/environments/environment.ts",
-                  "with": "src/client/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -82,27 +72,19 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/client/test.ts",
+            "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/client/polyfills.ts",
-            "tsConfig": "src/client/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": [
-              "src/client/sass/styles.scss"
-            ],
-            "assets": [
-              "src/client/assets",
-              "src/client/favicon.ico"
-            ]
+            "styles": ["src/sass/styles.scss"],
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/client/**/*.ts",
-              "src/client/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -138,9 +120,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "angular-eslint"
-    ],
+    "schematicCollections": ["angular-eslint"],
     "analytics": false
   }
 }
