@@ -39,6 +39,8 @@ const handler: Handler = async (event) => {
       responseType: 'json',
     });
 
+    console.log('🚀 ~ handler ~ response:', response);
+
     return {
       statusCode: response.statusCode,
       body: JSON.stringify(response.body),

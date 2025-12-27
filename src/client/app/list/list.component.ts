@@ -13,8 +13,4 @@ export class ListComponent {
   displayedColumns: string[] = ['name', 'email', 'mobile', 'birthday'];
   memberService = inject(MemberService);
   members: HttpResourceRef<Member[]> = this.memberService.get();
-
-  constructor() {
-    this.members = this.memberService.get();
-  }
 }

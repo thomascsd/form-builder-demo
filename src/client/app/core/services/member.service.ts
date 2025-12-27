@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Member } from '../../../../shared/models';
-import path from 'path';
 
 // const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev';
 const API_BASE_URL = '/.netlify/functions/proxy';
