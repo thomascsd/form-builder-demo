@@ -14,10 +14,10 @@
     "lib": ["es2017", "dom"],
     "baseUrl": "src",
     "paths": {
-      "@app/*": ["client/app/*"],
+      "@app/*": ["app/*"],
       "@shared/*": ["shared/*"],
-      "@core/*": ["client/app/core/*"],
-      "@utils/*": ["client/app/utils/*"]
+      "@core/*": ["app/core/*"],
+      "@utils/*": ["app/utils/*"]
     },
     "useDefineForClassFields": false,
     "strict": true,

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { County } from '../../../shared/models/county';
-import { Distinct } from '../../../shared/models/distinct';
-import { CountyService } from '../core/services/county.service';
 import { HttpResourceRef } from '@angular/common/http';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { County } from '@shared/models/county';
+import { Distinct } from '@shared/models/distinct';
+import { CountyService } from '@core/services/county.service';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss'],
+  styleUrls: ['./order.component.css'],
   standalone: false,
 })
 export class OrderComponent {

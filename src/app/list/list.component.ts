@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { MemberService } from '../core/services/member.service';
-import { Member } from '../../../shared/models/member';
 import { HttpResourceRef } from '@angular/common/http';
+import { MemberService } from '@core/services/member.service';
+import { Member } from '@shared/models/member';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  styleUrls: ['./list.component.css'],
   standalone: false,
 })
 export class ListComponent {

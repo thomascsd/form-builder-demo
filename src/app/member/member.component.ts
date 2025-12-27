@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl } from '@angular/forms';
-import { Member } from '../../../shared/models';
-import { BithdayService } from '../core/services/bithday.service';
-import { MemberService } from '../core/services/member.service';
-import { utilValidator } from '../utils/validator';
-import { ToForm } from '../utils/toForm';
+import { Member } from '@shared/models';
+import { BithdayService } from '@core/services/bithday.service';
+import { MemberService } from '@core/services/member.service';
+import { utilValidator } from '@utils/validator';
+import { ToForm } from '@utils/toForm';
 
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
-  styleUrls: ['./member.component.scss'],
+  styleUrls: ['./member.component.css'],
   standalone: false,
 })
 export class MemberComponent implements OnInit {

@@ -21,7 +21,7 @@
               "includePaths": ["src", "src/themes"]
             },
             "assets": ["src/assets", "src/favicon.ico"],
-            "styles": ["src/sass/styles.scss"],
+            "styles": ["src/sass/styles.css"],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,
@@ -77,7 +77,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
-            "styles": ["src/sass/styles.scss"],
+            "styles": ["src/sass/styles.css"],
             "assets": ["src/assets", "src/favicon.ico"]
           }
         },
@@ -93,7 +93,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "style": "scss",
+      "style": "css",
       "type": "component"
     },
     "@schematics/angular:directive": {
