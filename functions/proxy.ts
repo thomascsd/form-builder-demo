@@ -31,21 +31,24 @@ const handler: Handler = async (event) => {
   try {
     console.log('🚀 ~ handler ~ apiUrl + path:', apiUrl + path);
 
-    const response = await got(apiUrl + path, {
+    const response = await got<string>(apiUrl + path, {
       method: method,
       headers,
+      encoding: 'utf-8',
       body: isBodyMethod ? event.body || '' : undefined,
       throwHttpErrors: false,
       responseType: 'json',
     });
 
-    console.log('🚀 ~ handler ~ response:', response);
+    // console.log('🚀 ~ handler ~ response:', response);
 
     return {
       statusCode: response.statusCode,
       body: JSON.stringify(response.body),
     };
   } catch (err: unknown) {
+    console.log('🚀 ~ handler ~ err:', err);
+
     let message = 'Proxy error';
     if (err instanceof Error) {
       message = err.message || 'Proxy error';
