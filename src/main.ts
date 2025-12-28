@@ -1,11 +1,27 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { AppRoutingModule } from './app/app-routing.module';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { AppComponent } from './app/app.component';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom(
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule,
+      ReactiveFormsModule,
+      NgSelectModule,
+    ),
+    provideHttpClient(withFetch()),
+    provideAnimations(),
+  ],
+});
