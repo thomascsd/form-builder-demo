@@ -9,7 +9,6 @@ import { ToForm } from '@utils/toForm';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css'],
   standalone: false,
 })
 export class MemberComponent implements OnInit {

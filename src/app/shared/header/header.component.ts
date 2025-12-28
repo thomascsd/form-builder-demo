@@ -2,10 +2,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css'],
-    imports: [RouterLink],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styles: [
+    `
+      nav {
+        border-top: 6px solid #40aff4;
+      }
+    `,
+  ],
+  imports: [RouterLink],
 })
 export class HeaderComponent {
   @Input() buttonText = 'Write Diary';

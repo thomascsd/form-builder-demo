@@ -4,9 +4,8 @@ import { MemberService } from '@core/services/member.service';
 import { Member } from '@shared/models/member';
 
 @Component({
-    selector: 'app-list',
-    templateUrl: './list.component.html',
-    styleUrls: ['./list.component.css'],
+  selector: 'app-list',
+  templateUrl: './list.component.html',
 })
 export class ListComponent {
   displayedColumns: string[] = ['name', 'email', 'mobile', 'birthday'];
