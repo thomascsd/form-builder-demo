@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import { HttpResourceRef } from '@angular/common/http';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { NgSelectComponent } from '@ng-select/ng-select';
 import { County } from '@shared/models/county';
 import { Distinct } from '@shared/models/distinct';
 import { CountyService } from '@core/services/county.service';
 
 @Component({
   selector: 'app-order',
+  imports: [ReactiveFormsModule, NgSelectComponent],
   templateUrl: './order.component.html',
-  standalone: false,
+  standalone: true,
 })
 export class OrderComponent {
   county!: HttpResourceRef<County[]>;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { httpResource, HttpResourceRef } from '@angular/common/http';
-import { County } from '../../../../shared/models/county';
-import { Distinct } from '../../../../shared/models/distinct';
+import { County } from '../../../shared/models/county';
+import { Distinct } from '../../../shared/models/distinct';
 
 // const API_BASE_URL = 'https://sparkling-flower-9496.fly.dev/api';
 const API_BASE_URL = '/.netlify/functions/proxy';

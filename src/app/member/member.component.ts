@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, NgForm, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Member } from '@shared/models';
 import { BithdayService } from '@core/services/bithday.service';
 import { MemberService } from '@core/services/member.service';
@@ -8,8 +8,9 @@ import { ToForm } from '@utils/toForm';
 
 @Component({
   selector: 'app-member',
+  imports: [ReactiveFormsModule],
   templateUrl: './member.component.html',
-  standalone: false,
+  standalone: true,
 })
 export class MemberComponent implements OnInit {
   group!: FormGroup<ToForm<Member>>;
