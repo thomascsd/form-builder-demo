@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Member } from '@shared/models';
 import { BithdayService } from '@core/services/bithday.service';
@@ -13,16 +13,18 @@ import { ToForm } from '@utils/toForm';
   standalone: true,
 })
 export class MemberComponent implements OnInit {
+  fb = inject(FormBuilder);
+  memberService = inject(MemberService);
+  birthdayService = inject(BithdayService);
   group!: FormGroup<ToForm<Member>>;
   years: string[] = [];
   months: string[] = [];
   days: string[] = [];
+  member = signal<Member | null>(null);
 
-  constructor(
-    private fb: FormBuilder,
-    private birthdayService: BithdayService,
-    private memberService: MemberService,
-  ) {}
+  constructor() {
+    this.memberService.saveMember(() => this.member());
+  }
 
   ngOnInit() {
     this.group = this.fb.group({
@@ -41,7 +43,8 @@ export class MemberComponent implements OnInit {
 
   onSubmit() {
     if (this.group.valid) {
-      this.memberService.saveMember(this.group.value as Member);
+      // this.memberService.saveMember(this.group.value as Member);
+      this.member.set(this.group.value as Member);
     }
   }
 

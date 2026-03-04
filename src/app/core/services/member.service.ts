@@ -45,17 +45,21 @@ export class MemberService {
     this.members = this.members.filter((m) => m.id !== id);
   }
 
-  saveMember(member: Member) {
+  saveMember(memberReq: () => Member | null) {
     const params = {
       path: '/contact/save',
     };
     //return this.client.post(url, member);
 
+    if (memberReq() === null) {
+      return;
+    }
+
     return httpResource<Member>(() => ({
       url: API_BASE_URL,
       params,
       method: 'POST',
-      body: member,
+      body: memberReq(),
     }));
   }
 }
