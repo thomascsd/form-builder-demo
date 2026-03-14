@@ -21,10 +21,7 @@ export class MemberComponent implements OnInit {
   months: string[] = [];
   days: string[] = [];
   member = signal<Member | null>(null);
-
-  constructor() {
-    this.memberService.saveMember(() => this.member());
-  }
+  saveResource = this.memberService.saveMember(() => this.member());
 
   ngOnInit() {
     this.group = this.fb.group({
